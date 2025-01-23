@@ -1,4 +1,4 @@
-# K-Tech 🥗
+# K-Tech 📲
 
 - react-swiper
 - react-responsive-carousel
