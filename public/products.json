@@ -8,14 +8,11 @@
             "image": "https://i.ibb.co/7bHZFKf/my.png",
             "email": "kamrulislamapurba@gamil.com"
         },
-        "tags": [
-            "AI",
-            "Home Automation",
-            "Smart Devices"
-        ],
+        "tags": ["AI", "Home Automation", "Smart Devices"],
         "externalLinks": "https://smarthomeassistant.com",
         "voteCount": 0,
-        "timestamp": "2025-01-24T10:00:00Z"
+        "timestamp": "2025-01-24T10:00:00Z",
+        "category": "Smart Home"
     },
     {
         "productName": "AI-Powered Fitness Tracker",
@@ -26,14 +23,11 @@
             "image": "https://i.ibb.co/7bHZFKf/my.png",
             "email": "kamrulislamapurba@gamil.com"
         },
-        "tags": [
-            "AI",
-            "Fitness",
-            "Wearables"
-        ],
+        "tags": ["AI", "Fitness", "Wearables"],
         "externalLinks": "https://aifitnesstracker.com",
         "voteCount": 0,
-        "timestamp": "2025-01-23T15:30:00Z"
+        "timestamp": "2025-01-23T15:30:00Z",
+        "category": "Wearables"
     },
     {
         "productName": "Virtual Reality Headset",
@@ -44,14 +38,11 @@
             "image": "https://i.ibb.co/7bHZFKf/my.png",
             "email": "kamrulislamapurba@gamil.com"
         },
-        "tags": [
-            "Gaming",
-            "VR",
-            "Entertainment"
-        ],
+        "tags": ["Gaming", "VR", "Entertainment"],
         "externalLinks": "https://vrheadset.com",
         "voteCount": 0,
-        "timestamp": "2025-01-22T12:00:00Z"
+        "timestamp": "2025-01-22T12:00:00Z",
+        "category": "Gaming"
     },
     {
         "productName": "AI Writing Assistant",
@@ -62,14 +53,11 @@
             "image": "https://i.ibb.co/7bHZFKf/my.png",
             "email": "kamrulislamapurba@gamil.com"
         },
-        "tags": [
-            "AI",
-            "Writing",
-            "Productivity"
-        ],
+        "tags": ["AI", "Writing", "Productivity"],
         "externalLinks": "https://aiwritingassistant.com",
         "voteCount": 0,
-        "timestamp": "2025-01-21T14:45:00Z"
+        "timestamp": "2025-01-21T14:45:00Z",
+        "category": "Productivity"
     },
     {
         "productName": "Smart Watch Series 7",
@@ -80,14 +68,11 @@
             "image": "https://i.ibb.co/7bHZFKf/my.png",
             "email": "kamrulislamapurba@gamil.com"
         },
-        "tags": [
-            "Wearables",
-            "Health",
-            "Tech"
-        ],
+        "tags": ["Wearables", "Health", "Tech"],
         "externalLinks": "https://smartwatchseries7.com",
         "voteCount": 0,
-        "timestamp": "2025-01-20T09:15:00Z"
+        "timestamp": "2025-01-20T09:15:00Z",
+        "category": "Wearables"
     },
     {
         "productName": "AI Chatbot Platform",
@@ -96,16 +81,13 @@
         "productOwner": {
             "name": "Kamrul Islam",
             "image": "https://i.ibb.co/7bHZFKf/my.png",
-            "email": "kamrulislamapurba@gamil.com"
+        "email": "kamrulislamapurba@gamil.com"
         },
-        "tags": [
-            "AI",
-            "Chatbot",
-            "Business"
-        ],
+        "tags": ["AI", "Chatbot", "Business"],
         "externalLinks": "https://aichatbotplatform.com",
         "voteCount": 0,
-        "timestamp": "2025-01-19T11:00:00Z"
+        "timestamp": "2025-01-19T11:00:00Z",
+        "category": "Business Tools"
     },
     {
         "productName": "4K Drone Camera",
@@ -116,14 +98,26 @@
             "image": "https://i.ibb.co/7bHZFKf/my.png",
             "email": "kamrulislamapurba@gamil.com"
         },
-        "tags": [
-            "Photography",
-            "Drone",
-            "4K"
-        ],
+        "tags": ["Photography", "Drone", "4K"],
         "externalLinks": "https://4kdroncamera.com",
         "voteCount": 0,
-        "timestamp": "2025-01-18T16:30:00Z"
+        "timestamp": "2025-01-18T16:30:00Z",
+        "category": "Photography"
+    },
+    {
+        "productName": "4K Drone Camera",
+        "productImage": "https://www.ryans.com/storage/media_gallery/drone%20cam%20features_1730703096.webp",
+        "description": "A high-quality drone for aerial photography and videography.",
+        "productOwner": {
+            "name": "Kamrul Islam",
+            "image": "https://i.ibb.co/7bHZFKf/my.png",
+            "email": "kamrulislamapurba@gamil.com"
+        },
+        "tags": ["Photography", "Drone", "4K"],
+        "externalLinks": "https://4kdroncamera.com",
+        "voteCount": 52,
+        "timestamp": "2025-01-18T16:30:00Z",
+        "category": "featured"
     },
     {
         "productName": "E-Learning Platform",
@@ -134,14 +128,26 @@
             "image": "https://i.ibb.co/7bHZFKf/my.png",
             "email": "kamrulislamapurba@gamil.com"
         },
-        "tags": [
-            "Education",
-            "E-Learning",
-            "Online Courses"
-        ],
+        "tags": ["Education", "E-Learning", "Online Courses"],
         "externalLinks": "https://elearningplatform.com",
         "voteCount": 0,
-        "timestamp": "2025-01-17T13:15:00Z"
+        "timestamp": "2025-01-17T13:15:00Z",
+        "category": "Education"
+    },
+    {
+        "productName": "E-Learning Platform",
+        "productImage": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRujGc2s24uINhiUBMqG46RMjZ_bTCsP5sDwQ&s",
+        "description": "An online learning platform offering a variety of courses.",
+        "productOwner": {
+            "name": "Kamrul Islam",
+            "image": "https://i.ibb.co/7bHZFKf/my.png",
+            "email": "kamrulislamapurba@gamil.com"
+        },
+        "tags": ["Education", "E-Learning", "Online Courses"],
+        "externalLinks": "https://elearningplatform.com",
+        "voteCount": 40,
+        "timestamp": "2025-01-17T13:15:00Z",
+        "category": "featured"
     },
     {
         "productName": "Noise-Canceling Headphones",
@@ -152,14 +158,26 @@
             "image": "https://i.ibb.co/7bHZFKf/my.png",
             "email": "kamrulislamapurba@gamil.com"
         },
-        "tags": [
-            "Audio",
-            "Tech",
-            "Noise-Canceling"
-        ],
+        "tags": ["Audio", "Tech", "Noise-Canceling"],
         "externalLinks": "https://noisecancelingheadphones.com",
         "voteCount": 0,
-        "timestamp": "2025-01-16T17:00:00Z"
+        "timestamp": "2025-01-16T17:00:00Z",
+        "category": "Audio"
+    },
+    {
+        "productName": "Noise-Canceling Headphones",
+        "productImage": "https://cdn.mos.cms.futurecdn.net/ThiXKkp4sA5QGWVKDWyt6g.jpg",
+        "description": "High-quality headphones with active noise-canceling technology.",
+        "productOwner": {
+            "name": "Kamrul Islam",
+            "image": "https://i.ibb.co/7bHZFKf/my.png",
+            "email": "kamrulislamapurba@gamil.com"
+        },
+        "tags": ["Audio", "Tech", "Noise-Canceling"],
+        "externalLinks": "https://noisecancelingheadphones.com",
+        "voteCount": 12,
+        "timestamp": "2025-01-16T17:00:00Z",
+        "category": "featured"
     },
     {
         "productName": "Cloud Storage Solution",
@@ -170,13 +188,25 @@
             "image": "https://i.ibb.co/7bHZFKf/my.png",
             "email": "kamrulislamapurba@gamil.com"
         },
-        "tags": [
-            "Cloud",
-            "Storage",
-            "Tech"
-        ],
+        "tags": ["Cloud", "Storage", "Tech"],
         "externalLinks": "https://cloudstoragesolution.com",
         "voteCount": 0,
-        "timestamp": "2025-01-15T08:45:00Z"
+        "timestamp": "2025-01-15T08:45:00Z",
+        "category": "Cloud Technology"
+    },
+    {
+        "productName": "Cloud Storage Solution",
+        "productImage": "https://verpex.com/assets/uploads/images/blog/Data-Center-in-Cloud-Computing.webp?v=1707137756",
+        "description": "A secure and scalable cloud storage solution for individuals and businesses.",
+        "productOwner": {
+            "name": "Kamrul Islam",
+            "image": "https://i.ibb.co/7bHZFKf/my.png",
+            "email": "kamrulislamapurba@gamil.com"
+        },
+        "tags": ["Cloud", "Storage", "Tech"],
+        "externalLinks": "https://cloudstoragesolution.com",
+        "voteCount": 22,
+        "timestamp": "2025-01-15T08:45:00Z",
+        "category": "featured"
     }
 ]

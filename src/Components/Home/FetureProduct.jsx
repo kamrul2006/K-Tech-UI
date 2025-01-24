@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { FcLike, } from 'react-icons/fc';
-import { useNavigate } from 'react-router-dom';
+import { FiExternalLink } from 'react-icons/fi';
+import { Link, useNavigate } from 'react-router-dom';
 
 
 
@@ -8,7 +9,6 @@ const FeaturedProducts = () => {
     const [products, setProducts] = useState([]);
     const [user, setUser] = useState(null); // Mock user state (replace with real authentication)
     const [votes, setVotes] = useState({});
-    const navigate = useNavigate();
 
     // Fetch products from the backend (Express API)
     useEffect(() => {
@@ -16,7 +16,7 @@ const FeaturedProducts = () => {
             try {
                 const response = await fetch('http://localhost:5000/products'); // Adjust the API endpoint
                 const data = await response.json();
-                const sortedProducts = data.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+                const sortedProducts = data.filter(d=> d.category=='featured');
                 setProducts(sortedProducts.slice(0, 4)); // Show only the latest 4 products
             } catch (error) {
                 console.error('Error fetching products:', error);
@@ -80,12 +80,14 @@ const FeaturedProducts = () => {
                         />
                         <hr />
 
-                        <h3
-                            className="text-xl font-medium text-blue-600 cursor-pointer hover:text-green-600"
-                            onClick={() => navigate(`/products/${product._id}`)}
-                        >
-                            {product.productName}
-                        </h3>
+
+                        <Link to={`/products/${product._id}`}>
+                            <h3
+                                className="text-base font-medium text-blue-600 cursor-pointer hover:text-green-600 hover:font-bold my-4 flex items-center gap-2"
+                            >
+                                {product.productName} <FiExternalLink className="text-gray-400" />
+                            </h3>
+                        </Link>
 
                         <div className="my-3 flex flex-wrap justify-center space-x-2 mb-4">
                             {product.tags.map((tag, index) => (
@@ -96,15 +98,15 @@ const FeaturedProducts = () => {
                         </div>
 
                         {/* ---------buttons----------- */}
-                        <div>
+                        <div className='flex justify-end'>
                             {/* -----like------ */}
                             <button
                                 className={`btn btn-outline btn-sm w-fit`}
                                 onClick={() => handleUpvote(product._id)}
                                 disabled={!user || user.id === product.ownerId || votes[product._id]}
                             >
-                                <span className="material-icons mr-2"><FcLike /></span>
                                 {product.voteCount || 0}
+                                <span className="text-lg"><FcLike /></span>
                             </button>
                         </div>
 

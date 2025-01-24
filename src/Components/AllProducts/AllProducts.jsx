@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { BiLeftArrow, BiRightArrow } from "react-icons/bi";
+import { Link } from "react-router-dom";
+import { FiExternalLink } from "react-icons/fi";
 
 const AllProducts = () => {
     const [products, setProducts] = useState([]);
@@ -60,12 +62,17 @@ const AllProducts = () => {
                                 className="w-full h-48 object-cover"
                             />
                             <div className="p-4">
-                                <h3 className="text-lg font-semibold text-gray-800">
-                                    {product.productName}
-                                </h3>
+
+                                <Link to={`/products/${product._id}`}>
+                                    <h3
+                                        className="text-xl font-medium text-blue-600 cursor-pointer hover:text-green-600 hover:font-bold mb-4 flex items-center gap-2"
+                                    >
+                                        {product.productName} <FiExternalLink  className="text-gray-400"/>
+                                    </h3>
+                                </Link>
 
                                 {product.tags.map((tag, index) => (
-                                    <span key={index} className="bg-gray-200 text-gray-800 p-1 rounded-full text-xs ml-2">
+                                    <span key={index} className="bg-gray-200 text-gray-800 p-1 rounded-full text-xs ml-2 my-4">
                                         {tag}
                                     </span>
                                 ))}
@@ -75,14 +82,14 @@ const AllProducts = () => {
                                 </p>
 
 
-                                <div className="flex justify-between items-center mt-4">
+                                {/* <div className="flex justify-between items-center mt-4">
                                     <span className="text-blue-500 font-semibold">
                                         ${product.price ? product.price : 100}
                                     </span>
                                     <button className="px-4 py-2 bg-blue-500 text-white text-sm font-medium rounded-md hover:bg-blue-600">
                                         Buy Now
                                     </button>
-                                </div>
+                                </div> */}
                             </div>
                         </div>
                     ))}
@@ -96,7 +103,7 @@ const AllProducts = () => {
                         className={`px-4 py-2 bg-gray-200 rounded-md hover:bg-gray-300 text-sm ${currentPage === 1 && "cursor-not-allowed opacity-50"
                             }`}
                     >
-                      <BiLeftArrow/>
+                        <BiLeftArrow />
                     </button>
 
 
@@ -111,7 +118,7 @@ const AllProducts = () => {
                         className={`px-4 py-2 bg-gray-200 rounded-md hover:bg-gray-300 text-sm ${currentPage === totalPages && "cursor-not-allowed opacity-50"
                             }`}
                     >
-                       <BiRightArrow/>
+                        <BiRightArrow />
                     </button>
                 </div>
             </div>
