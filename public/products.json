@@ -1,0 +1,182 @@
+[
+    {
+        "productName": "Smart Home Assistant",
+        "productImage": "https://fgg.eav.mybluehost.me/website_2e40961a/wp-content/uploads/2019/02/Amazon-Echo-Google-Home-Mini-speakers-DHM-5D301335-1920x1024px.jpg",
+        "description": "A voice-controlled assistant for managing smart home devices.",
+        "productOwner": {
+            "name": "Kamrul Islam",
+            "image": "https://i.ibb.co/7bHZFKf/my.png",
+            "email": "kamrulislamapurba@gamil.com"
+        },
+        "tags": [
+            "AI",
+            "Home Automation",
+            "Smart Devices"
+        ],
+        "externalLinks": "https://smarthomeassistant.com",
+        "voteCount": 0,
+        "timestamp": "2025-01-24T10:00:00Z"
+    },
+    {
+        "productName": "AI-Powered Fitness Tracker",
+        "productImage": "https://cdn.mos.cms.futurecdn.net/UkfeQ7BcJAquCvFMvBTXSY-1200-80.jpg",
+        "description": "A wearable device that tracks fitness metrics using AI.",
+        "productOwner": {
+            "name": "Kamrul Islam",
+            "image": "https://i.ibb.co/7bHZFKf/my.png",
+            "email": "kamrulislamapurba@gamil.com"
+        },
+        "tags": [
+            "AI",
+            "Fitness",
+            "Wearables"
+        ],
+        "externalLinks": "https://aifitnesstracker.com",
+        "voteCount": 0,
+        "timestamp": "2025-01-23T15:30:00Z"
+    },
+    {
+        "productName": "Virtual Reality Headset",
+        "productImage": "https://www.techlandbd.com/image/catalog/Headphone-Headset/Oculus%20Rift/techlandbd-Oculus-Rift-Virtual-Reality-Headset-1.jpg",
+        "description": "An immersive VR headset for gaming and entertainment.",
+        "productOwner": {
+            "name": "Kamrul Islam",
+            "image": "https://i.ibb.co/7bHZFKf/my.png",
+            "email": "kamrulislamapurba@gamil.com"
+        },
+        "tags": [
+            "Gaming",
+            "VR",
+            "Entertainment"
+        ],
+        "externalLinks": "https://vrheadset.com",
+        "voteCount": 0,
+        "timestamp": "2025-01-22T12:00:00Z"
+    },
+    {
+        "productName": "AI Writing Assistant",
+        "productImage": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgUP0HZLDx7CP9XvUFKN4UUVVHI1wvqnhuBg&s",
+        "description": "A tool that helps you write better and faster using AI.",
+        "productOwner": {
+            "name": "Kamrul Islam",
+            "image": "https://i.ibb.co/7bHZFKf/my.png",
+            "email": "kamrulislamapurba@gamil.com"
+        },
+        "tags": [
+            "AI",
+            "Writing",
+            "Productivity"
+        ],
+        "externalLinks": "https://aiwritingassistant.com",
+        "voteCount": 0,
+        "timestamp": "2025-01-21T14:45:00Z"
+    },
+    {
+        "productName": "Smart Watch Series 7",
+        "productImage": "https://i0.wp.com/post.healthline.com/wp-content/uploads/2021/09/Apple_Watch_Series7_1296x728-header-1296x729.jpg?w=1155&h=2268",
+        "description": "A sleek smartwatch with advanced health monitoring features.",
+        "productOwner": {
+            "name": "Kamrul Islam",
+            "image": "https://i.ibb.co/7bHZFKf/my.png",
+            "email": "kamrulislamapurba@gamil.com"
+        },
+        "tags": [
+            "Wearables",
+            "Health",
+            "Tech"
+        ],
+        "externalLinks": "https://smartwatchseries7.com",
+        "voteCount": 0,
+        "timestamp": "2025-01-20T09:15:00Z"
+    },
+    {
+        "productName": "AI Chatbot Platform",
+        "productImage": "https://media.licdn.com/dms/image/v2/D4E12AQFIJQe-gPAFCQ/article-cover_image-shrink_600_2000/article-cover_image-shrink_600_2000/0/1700588517721?e=2147483647&v=beta&t=oOhBL-NvrMW0dVUMUNyxUBLRiuqFpreTnlpPetvJ_gg",
+        "description": "A platform for building and deploying AI-powered chatbots.",
+        "productOwner": {
+            "name": "Kamrul Islam",
+            "image": "https://i.ibb.co/7bHZFKf/my.png",
+            "email": "kamrulislamapurba@gamil.com"
+        },
+        "tags": [
+            "AI",
+            "Chatbot",
+            "Business"
+        ],
+        "externalLinks": "https://aichatbotplatform.com",
+        "voteCount": 0,
+        "timestamp": "2025-01-19T11:00:00Z"
+    },
+    {
+        "productName": "4K Drone Camera",
+        "productImage": "https://www.ryans.com/storage/media_gallery/drone%20cam%20features_1730703096.webp",
+        "description": "A high-quality drone for aerial photography and videography.",
+        "productOwner": {
+            "name": "Kamrul Islam",
+            "image": "https://i.ibb.co/7bHZFKf/my.png",
+            "email": "kamrulislamapurba@gamil.com"
+        },
+        "tags": [
+            "Photography",
+            "Drone",
+            "4K"
+        ],
+        "externalLinks": "https://4kdroncamera.com",
+        "voteCount": 0,
+        "timestamp": "2025-01-18T16:30:00Z"
+    },
+    {
+        "productName": "E-Learning Platform",
+        "productImage": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRujGc2s24uINhiUBMqG46RMjZ_bTCsP5sDwQ&s",
+        "description": "An online learning platform offering a variety of courses.",
+        "productOwner": {
+            "name": "Kamrul Islam",
+            "image": "https://i.ibb.co/7bHZFKf/my.png",
+            "email": "kamrulislamapurba@gamil.com"
+        },
+        "tags": [
+            "Education",
+            "E-Learning",
+            "Online Courses"
+        ],
+        "externalLinks": "https://elearningplatform.com",
+        "voteCount": 0,
+        "timestamp": "2025-01-17T13:15:00Z"
+    },
+    {
+        "productName": "Noise-Canceling Headphones",
+        "productImage": "https://cdn.mos.cms.futurecdn.net/ThiXKkp4sA5QGWVKDWyt6g.jpg",
+        "description": "High-quality headphones with active noise-canceling technology.",
+        "productOwner": {
+            "name": "Kamrul Islam",
+            "image": "https://i.ibb.co/7bHZFKf/my.png",
+            "email": "kamrulislamapurba@gamil.com"
+        },
+        "tags": [
+            "Audio",
+            "Tech",
+            "Noise-Canceling"
+        ],
+        "externalLinks": "https://noisecancelingheadphones.com",
+        "voteCount": 0,
+        "timestamp": "2025-01-16T17:00:00Z"
+    },
+    {
+        "productName": "Cloud Storage Solution",
+        "productImage": "https://verpex.com/assets/uploads/images/blog/Data-Center-in-Cloud-Computing.webp?v=1707137756",
+        "description": "A secure and scalable cloud storage solution for individuals and businesses.",
+        "productOwner": {
+            "name": "Kamrul Islam",
+            "image": "https://i.ibb.co/7bHZFKf/my.png",
+            "email": "kamrulislamapurba@gamil.com"
+        },
+        "tags": [
+            "Cloud",
+            "Storage",
+            "Tech"
+        ],
+        "externalLinks": "https://cloudstoragesolution.com",
+        "voteCount": 0,
+        "timestamp": "2025-01-15T08:45:00Z"
+    }
+]

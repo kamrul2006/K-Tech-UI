@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa"; // Icons for Hamburger Menu
 import { AiOutlineUser, AiOutlineLogout } from "react-icons/ai"; // Icons for Profile and Logout
 import logo from "../../assets/llg.png";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false); // Replace with actual authentication state
@@ -47,15 +48,17 @@ const Navbar = () => {
           </a>
 
           {!isLoggedIn ? (
-            <button
-              onClick={() => setIsLoggedIn(true)}
-              className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-400 transition"
-            >
-              Login 
-            </button>
+            <Link to={'/login'}>
+              <button
+                onClick={() => setIsLoggedIn(true)}
+                className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-400 transition"
+              >
+                Login
+              </button>
+            </Link>
           ) : (
             <div className="relative">
-              <img src="https://i.ibb.co.com/7bHZFKf/my.png" 
+              <img src="https://i.ibb.co.com/7bHZFKf/my.png"
                 className="border-gray-300 border-2 w-14 rounded-full cursor-pointer hover:border-gray-600"
                 onClick={toggleDropdown}
                 aria-expanded={isDropdownOpen}

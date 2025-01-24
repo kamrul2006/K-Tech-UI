@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import Banner from '../Home/Banner';
+import FeaturedProducts from '../Home/FetureProduct';
 
 
 const HomeLayout = () => {
@@ -13,6 +14,8 @@ const HomeLayout = () => {
         <div className='min-h-screen'>
 
             <Banner />
+
+            <FeaturedProducts />
 
 
         </div>
