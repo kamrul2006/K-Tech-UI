@@ -16,7 +16,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-white px-4 md:px-16 py-4 fixed top-0 w-full z-50 shadow-md">
+    <nav className="bg-white/70 backdrop-blur-xl px-4 md:px-16 py-4 fixed top-0 w-full z-50 shadow-md">
       <div className="flex justify-between items-center">
         {/* Logo */}
         <div className="text-2xl font-bold flex items-center gap-2">
@@ -51,7 +51,7 @@ const Navbar = () => {
               onClick={() => setIsLoggedIn(true)}
               className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-400 transition"
             >
-              Login / Register
+              Login 
             </button>
           ) : (
             <div className="relative">
