@@ -34,6 +34,7 @@ const Banner = () => {
           </div>
         </div>
 
+
         {/* Slide 2 */}
         <div className="relative">
           <img
@@ -50,6 +51,7 @@ const Banner = () => {
             </p>
           </div>
         </div>
+
 
         {/* Slide 3 */}
         <div className="relative">
