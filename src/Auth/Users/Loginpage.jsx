@@ -96,7 +96,7 @@ const LoginPage = () => {
         >
 
             <div className=" shadow-xl border backdrop-blur-md border-black rounded-lg flex flex-col lg:flex-row w-11/12 max-w-4xl overflow-hidden">
-                {/* Left Side */}
+                {/*----------------------- Left Side ------------------------*/}
                 <div className="lg:w-1/2 w-full flex items-center justify-center ">
                     <img
                         src={ill}
@@ -105,13 +105,15 @@ const LoginPage = () => {
                     />
                 </div>
 
-                {/* Right Side */}
+
+
+                {/*---------------------- Right Side-------------------- */}
                 <div className="lg:w-1/2 w-full p-8">
                     <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center lg:text-left">
                         Login
                     </h2>
                     <form className="space-y-4" onSubmit={handleSubmit}>
-                        {/* Email Field */}
+                        {/* ------------------------Email Field ---------------------*/}
                         <div>
                             <label
                                 htmlFor="email"
@@ -128,7 +130,7 @@ const LoginPage = () => {
                             />
                         </div>
 
-                        {/* Password Field */}
+                        {/* --------------------Password Field------------------- */}
                         <div className="relative">
                             <label className="my-1 text-sm font-semibold">Password</label>
                             <input
@@ -147,7 +149,7 @@ const LoginPage = () => {
                             </button>
                         </div>
 
-                        {/* Captcha */}
+                        {/* -----------------------Captcha------------------- */}
                         <div className="p-4 bg-white rounded-xl">
                             <label
                                 htmlFor="captcha"
