@@ -4,8 +4,6 @@ import { auth } from "../FireBase/firebase.init";
 import axios from "axios";
 
 
-
-
 //----------------the context here------------------
 export const AuthContext = createContext()
 const provider = new GoogleAuthProvider()
@@ -29,7 +27,6 @@ const AuthProvider = ({ children }) => {
     const GoogleLogin = () => {
         return signInWithPopup(auth, provider)
     }
-
 
     //-----------------------user sign out----------------
     const UserSignOut = () => {

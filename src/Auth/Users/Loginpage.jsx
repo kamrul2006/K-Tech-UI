@@ -1,10 +1,10 @@
 import React, { useContext, useEffect, useState } from "react";
-import { FaGoogle, FaFacebook, FaGithub, FaEyeSlash, FaEye } from "react-icons/fa";
+import { FaGoogle, FaFacebook, FaGithub, FaEyeSlash, FaEye, FaHome } from "react-icons/fa";
 import bg from "../../assets/loginbg.jpg"
 import ill from "../../assets/llg.jpg"
 
 import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-simple-captcha';
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Providers/AuthProvider";
 import UseAxiosPublic from "../../Hooks/UseAxiosPublic";
 
@@ -32,17 +32,17 @@ const LoginPage = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        setError(null)
+        setSuccess(null)
         const email = e.target.email.value;
         const password = e.target.password.value;
         let user_captcha_value = document.getElementById('user_captcha_input').value;
 
-        if (validateCaptcha(user_captcha_value) == true) {
-            alert('Captcha Matched');
-        }
-        else {
-            alert('Captcha Does Not Match');
+        if (validateCaptcha(user_captcha_value) == false) {
+            setError('Captcha Does Not Match');
             return;
         }
+
 
         //-------------------------login with email and password--------------------
         LoginUser(email, password)
@@ -78,7 +78,6 @@ const LoginPage = () => {
                 axiosPublic.post('/users', UserInfo)
                     .then(res => {
                         if (res.data.insertedId) {
-
                         }
                     })
             })
@@ -97,12 +96,11 @@ const LoginPage = () => {
 
             <div className=" shadow-xl border backdrop-blur-md border-black rounded-lg flex flex-col lg:flex-row w-11/12 max-w-4xl overflow-hidden">
                 {/*----------------------- Left Side ------------------------*/}
-                <div className="lg:w-1/2 w-full flex items-center justify-center ">
-                    <img
-                        src={ill}
-                        alt="Login Illustration"
-                        className="w-3/4 lg:w-2/3 p-4 rounded-full"
-                    />
+                <div className="w-full md:w-1/2 flex items-center justify-center flex-col p-3">
+                    <img src={ill} alt="Sign Up Illustration" className="max-w-full h-auto object-contain rounded-full w-20 md:w-80" />
+                    <Link to={'/'} className="btn btn-sm btn-info mt-2 md:mt-5">
+                        <FaHome className="mr-2" />
+                        Back to Home</Link>
                 </div>
 
 

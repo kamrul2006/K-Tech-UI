@@ -1,236 +1,218 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
-import { FaEye, FaEyeSlash, FaFacebook, FaGithub, FaGoogle } from "react-icons/fa";
-// import Swal from "sweetalert2";
+import { FaEye, FaEyeSlash, FaFacebook, FaGithub, FaGoogle, FaHome } from "react-icons/fa";
 import { sendEmailVerification } from "firebase/auth";
 import { AuthContext } from "../Providers/AuthProvider";
 import { auth } from "../FireBase/firebase.init";
-import bg from "../../assets/others/authentication.png"
-import ill from "../../assets/others/authentication1.png"
+import bg from "../../assets/SignUpBg.png";
+import ill from "../../assets/llg.jpg";
 import UseAxiosPublic from "../../Hooks/UseAxiosPublic";
 
-
-
-
 const SignupPage = () => {
+    const axiosPublic = UseAxiosPublic();
+    const navigate = useNavigate();
+    const { CreateUserByMailPass, setUser, updatedProfile, GoogleLogin } = useContext(AuthContext);
 
-    const axiosPublic = UseAxiosPublic()
-    const navigate = useNavigate()
-    //--------------------------Context use--------------------------
-    const { CreateUserByMailPass, setUser, updatedProfile, GoogleLogin } = useContext(AuthContext)
-
-    const [error, setError] = useState(null)
-    const [success, setSuccess] = useState(null)
-    const [show, setShow] = useState(false)
+    const [error, setError] = useState(null);
+    const [success, setSuccess] = useState(null);
+    const [show, setShow] = useState(false);
 
     const HandleSignUp = (e) => {
         e.preventDefault();
-        // -------------------clearing error +success msg
-        setError(null)
-        setSuccess(null)
+        setError(null);
+        setSuccess(null);
 
-        const Email = e.target.email.value
-        const Password = e.target.password.value
-        const Name = e.target.name.value
-        const Terms = e.target.terms.checked
-
+        const Email = e.target.email.value;
+        const Password = e.target.password.value;
+        const Name = e.target.name.value;
+        const Terms = e.target.terms.checked;
+        const Photo = e.target.photo.value
 
         const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/;
 
         if (!Terms) {
-            setError('Pleas accept all terms and conditions.')
-            return
+            setError("Please accept all terms and conditions.");
+            return;
+        } else if (Password.length < 6) {
+            setError("Password should be at least 6 characters long.");
+            return;
+        } else if (!passwordRegex.test(Password)) {
+            setError("Password should contain a-z, A-Z, 0-9, and a special character.");
+            return;
         }
-        else if (Password.length < 6) {
-            setError('Password should must be 6 character or more !!')
-            return
-        }
-        else if (!passwordRegex.test(Password)) {
-            setError('Password should contain a-z, A-Z, 0-9 and a special character.')
-            return
-        }
-
 
         CreateUserByMailPass(Email, Password)
             .then((userCredential) => {
-                //         // ----------------------------Signed up 
                 const user = userCredential.user;
-                // const time = userCredential.user.metadata.creationTime;
-                setUser(user)
+                setUser(user);
 
                 const UserInfo = {
                     name: Name,
                     email: Email,
-                    role: "user"
-                }
+                    role: "user",
+                };
 
-                axiosPublic.post('/users', UserInfo)
-                    .then(res => {
-                        if (res.data.insertedId) {
-                            setSuccess('Sign Up Successful.')
-                        }
-                    })
+                axiosPublic.post("/users", UserInfo).then((res) => {
+                    if (res.data.insertedId) {
+                        setSuccess("Sign Up Successful.");
+                    }
+                });
 
-                // -------------updating profile-----------
-                updatedProfile({ displayName: Name })
+                updatedProfile({ displayName: Name, photoURL: Photo })
                     .then(() => {
-                        e.target.reset()
-                        navigate('/')
+                        e.target.reset();
+                        navigate("/");
                     })
-                    .catch(err => setError(err.massage))
+                    .catch((err) => setError(err.message));
 
-                // --------------sending verification ----------
-                sendEmailVerification(auth.currentUser)
-                    .then(() => {
-                        //                 console.log('Email verification sent!')
-                    })
+                sendEmailVerification(auth.currentUser).then(() => { });
             });
+    };
 
-
-    }
-
-    //------------------- HAndle google--------------
     const HandleGoogleLogin = () => {
         GoogleLogin()
             .then((res) => {
-                // console.log(res.user)
-                setUser(res.user)
+                setUser(res.user);
 
                 const UserInfo = {
                     name: res.user.displayName,
                     email: res.user.email,
-                    role: "user"
-                }
-                
-                setSuccess('Sign Up Successful.')
-                navigate('/')
+                    role: "user",
+                };
 
-                axiosPublic.post('/users', UserInfo)
-                    .then(res =>{} )
-
-
+                axiosPublic.post("/users", UserInfo).then(() => { });
+                setSuccess("Sign Up Successful.");
+                navigate("/");
             })
-            .catch(err => {
+            .catch((err) => {
                 console.log(err);
-                setUser(null)
-            })
-    }
+                setUser(null);
+            });
+    };
 
     const ShowPassWord = (e) => {
         e.preventDefault();
-        setShow(!show)
-    }
-
+        setShow(!show);
+    };
 
     return (
-        <div className="bg-center bg-cover px-28 py-10 min-h-screen"
+        <div
+            className="bg-center bg-cover px-6 py-10 min-h-screen flex items-center justify-center"
             style={{ background: `url(${bg})` }}
         >
+            <div className="backdrop-blur shadow-xl rounded-lg flex flex-col md:flex-row-reverse w-full max-w-4xl overflow-hidden">
+                {/* Left Side */}
+                <div className="w-full md:w-1/2 flex items-center justify-center flex-col p-3">
+                    <img src={ill} alt="Sign Up Illustration" className="max-w-full h-auto object-contain rounded-full w-20 md:w-80" />
+                    <Link to={'/'} className="btn btn-sm btn-info mt-2 md:mt-5">
+                        <FaHome className="mr-2" />
+                        Back to Home</Link>
+                </div>
 
-            <div >
-                <div className="flex items-center justify-center flex-row-reverse shadow-xl rounded-lg shadow-black" style={{ background: `url(${bg})` }}>
+                {/* Right Side */}
+                <div className="w-full md:w-1/2 p-6 md:p-12">
+                    <h2 className="text-2xl md:text-3xl font-bold text-center mb-6">Sign Up</h2>
+                    <form onSubmit={HandleSignUp} className="space-y-2">
 
-                    {/* Left Side */}
-                    <div className="w-1/2  flex  items-center justify-center" >
-                        <img
-                            src={ill}
-                            alt="Login Illustration"
-                            className="w-3/4"
-                        />
-                    </div>
-
-                    {/* ----------------form------------ */}
-                    <div className=" p-8  px-16 w-full md:w-1/2 my-5">
-                        <h2 className="text-3xl font-bold  text-center mb-6">Sign up</h2>
-
-                        <form onSubmit={HandleSignUp} className="space-y-3">
-
-                            <div className="relative">
-                                <label className="  text-sm mx-2">
-                                    Full Name:
-                                </label>
-                                <input
-                                    type="Text"
-                                    id="name"
-                                    name="name"
-                                    className="w-full px-4 py-2 border border-white-300 rounded-lg focus:outline-none text-black focus:border-blue-500 peer"
-                                    placeholder="First name + Last Name"
-                                    required
-                                />
-                            </div>
-
-                            <div className="">
-                                <label className="  text-sm mx-2">
-                                    Email Address:
-                                </label>
-                                <input
-                                    type="email"
-                                    id="email"
-                                    name="email"
-                                    className="w-full px-4 py-2 border border-white-300 rounded-lg focus:outline-none focus:border-blue-500 peer text-black"
-                                    placeholder="Email "
-                                    required
-                                />
-                            </div>
-
-                            <div className="relative">
-                                <label className="  text-sm mx-2">
-                                    Password:
-                                </label>
-                                <input
-                                    type={show ? "text" : "password"}
-                                    id="password"
-                                    name="password"
-                                    className="w-full px-4 py-2 border border-white-300 rounded-lg focus:outline-none focus:border-blue-500 peer text-black"
-                                    placeholder="Password"
-                                    required
-                                />
-                                <button onClick={ShowPassWord} className="btn btn-ghost btn-xs absolute right-3 top-8 text-lg">
-                                    {show ? <FaEyeSlash /> : <FaEye />}
-                                </button>
-                            </div>
-
-                            <div className="my-2">
-                                <label className="cursor-pointer flex items-center gap-2">
-                                    <input type="checkbox" name="terms" className="checkbox checkbox-warning" />
-                                    <span className=" text-yellow-500">Accept all terms and conditions</span>
-                                </label>
-                            </div>
-
-                            {error && <p className="text-xs font-semibold text-red-500 text-center">{error}</p>}
-                            {success && <p className="text-xs font-semibold text-green-500 text-center">{success}</p>}
-
-                            <button
-                                type="submit"
-                                className="w-full py-2 bg-yellow-400 hover:bg-yellow-500 text-white font-medium rounded-md"
-                            >
-                                Sign up
-                            </button>
-                        </form>
-
-                        <div className="mt-2 text-center">
-                            <p className="text-sm text-gray-600">Or sign in with</p>
-
-                            <div className="flex justify-center space-x-4 mt-2">
-                                <button onClick={HandleGoogleLogin} className="p-2 rounded-full bg-gray-100 hover:bg-gray-200">
-                                    <FaGoogle className="text-red-500 text-xl" />
-                                </button>
-                                <button className="p-2 rounded-full bg-gray-100 hover:bg-gray-200">
-                                    <FaFacebook
-                                        className="text-blue-500 text-xl" />
-                                </button>
-                                <button className="p-2 rounded-full bg-gray-100 hover:bg-gray-200">
-                                    <FaGithub className="text-gray-800 text-xl" />
-                                </button>
-                            </div>
+                        <div>
+                            <label htmlFor="name" className="text-sm font-medium">
+                                Full Name:
+                            </label>
+                            <input
+                                type="text"
+                                id="name"
+                                name="name"
+                                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-blue-400 focus:border-blue-400"
+                                placeholder="First name + Last name"
+                                required
+                            />
                         </div>
 
-                        <p className="text-center mt-2">
-                            Already have an account?  <Link to={'/logIn'} className="text-blue-500 hover:underline">
-                                Log in
-                            </Link>
-                        </p>
+                        <div>
+                            <label htmlFor="name" className="text-sm font-medium">
+                                Photo Url:
+                            </label>
+                            <input
+                                type="text"
+                                id="photo"
+                                name="photo"
+                                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-blue-400 focus:border-blue-400"
+                                placeholder="First name + Last name"
+                                required
+                            />
+                        </div>
+
+                        <div>
+                            <label htmlFor="email" className="text-sm font-medium">
+                                Email Address:
+                            </label>
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-blue-400 focus:border-blue-400"
+                                placeholder="Email"
+                                required
+                            />
+                        </div>
+
+                        <div className="relative">
+                            <label htmlFor="password" className="text-sm font-medium">
+                                Password:
+                            </label>
+                            <input
+                                type={show ? "text" : "password"}
+                                id="password"
+                                name="password"
+                                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-blue-400 focus:border-blue-400"
+                                placeholder="Password"
+                                required
+                            />
+                            <button
+                                onClick={ShowPassWord}
+                                className="absolute right-3 top-9 text-lg text-gray-600"
+                            >
+                                {show ? <FaEyeSlash /> : <FaEye />}
+                            </button>
+                        </div>
+
+                        <div className="flex items-center gap-2">
+                            <input type="checkbox" name="terms" className="checkbox checkbox-info" />
+                            <label className="text-sm text-blue-500 cursor-pointer">
+                                Accept all terms and conditions
+                            </label>
+                        </div>
+
+                        {error && <p className="text-sm text-red-500 text-center">{error}</p>}
+                        {success && <p className="text-sm text-green-500 text-center">{success}</p>}
+
+                        <button
+                            type="submit"
+                            className="w-full py-2 bg-blue-400 hover:bg-blue-500 text-white font-medium rounded-md"
+                        >
+                            Sign Up
+                        </button>
+                    </form>
+
+                    <div className="mt-4 text-center">
+                        <p className="text-sm text-gray-600">Or sign up with</p>
+                        <div className="flex justify-center gap-4 mt-2">
+                            <button
+                                onClick={HandleGoogleLogin}
+                                className="w-full btn btn-info btn-sm text-blue-900"
+                            >
+                                <FaGoogle className="mr-2" />
+                                Sign in with Google
+                            </button>
+                        </div>
                     </div>
+
+                    <p className="text-center mt-4">
+                        Already have an account?{" "}
+                        <Link to="/logIn" className="text-blue-500 hover:underline">
+                            Log in
+                        </Link>
+                    </p>
                 </div>
             </div>
         </div>
