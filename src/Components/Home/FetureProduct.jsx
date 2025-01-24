@@ -78,7 +78,7 @@ const FeaturedProducts = () => {
                             alt={product.productName}
                             className="w-full h-48 md:h-40 object-cover rounded-md mb-4"
                         />
-<hr />
+                        <hr />
 
                         <h3
                             className="text-xl font-medium text-blue-600 cursor-pointer hover:text-green-600"

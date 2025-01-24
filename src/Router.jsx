@@ -6,6 +6,7 @@ import LoginPage from "./Auth/Users/Loginpage";
 import SignupPage from "./Auth/Users/SignupPage";
 import AboutUs from "./Components/FixdToAll/AboutUs";
 import ContactUs from "./Components/FixdToAll/ContactUs";
+import AllProducts from "./Components/AllProducts/AllProducts";
 
 
 
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
             {
                 path: '/',
                 element: <HomeLayout />,
+            },
+            {
+                path: '/products',
+                element: <AllProducts />,
             },
             {
                 path: '/about',
