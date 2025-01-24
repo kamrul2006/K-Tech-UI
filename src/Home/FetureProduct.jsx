@@ -64,13 +64,13 @@ const FeaturedProducts = () => {
     };
 
     return (
-        <section className="py-16 px-8 md:px-10 bg-gray-100 text-center">
+        <section className="py-16 px-8 md:px-0 bg-gray-100 text-center">
             <h2 className="text-2xl font-semibold mb-8">Featured Products</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                 {products.map((product) => (
 
                     <div key={product._id}
-                        className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
+                        className="bg-white p-5 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
 
 
                         <img
@@ -78,7 +78,7 @@ const FeaturedProducts = () => {
                             alt={product.productName}
                             className="w-full h-48 md:h-40 object-cover rounded-md mb-4"
                         />
-
+<hr />
 
                         <h3
                             className="text-xl font-medium text-blue-600 cursor-pointer hover:text-green-600"
@@ -87,7 +87,7 @@ const FeaturedProducts = () => {
                             {product.productName}
                         </h3>
 
-                        <div className="mt-2 flex flex-wrap justify-center space-x-2 mb-4">
+                        <div className="my-3 flex flex-wrap justify-center space-x-2 mb-4">
                             {product.tags.map((tag, index) => (
                                 <span key={index} className="bg-gray-200 text-gray-800 py-1 px-2  rounded-full text-xs">
                                     {tag}
