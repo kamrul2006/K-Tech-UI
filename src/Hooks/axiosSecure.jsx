@@ -4,7 +4,7 @@ import { AuthContext } from "../Authentication/Providers/AuthProvider";
 import { useNavigate } from "react-router-dom";
 
 export const axiosSecurity = axios.create({
-    baseURL: 'https://bistor-boss-server-gamma.vercel.app',
+    baseURL: 'http://localhost:5000',
     withCredentials: true
 })
 

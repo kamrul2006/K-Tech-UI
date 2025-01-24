@@ -67,20 +67,20 @@ const AuthProvider = ({ children }) => {
             if (currentUser?.email) {
                 const user = { email: currentUser?.email };
 
-                axios.post('https://bistor-boss-server-gamma.vercel.app/jwt', user, { withCredentials: true })
+                axios.post('http://localhost:5000/jwt', user, { withCredentials: true })
                     .then(res => {
                         // console.log('login token', res.data);
                         if (res.data.token) {
-                            localStorage.setItem('Bistro-Token', res.data.token)
+                            localStorage.setItem('Token', res.data.token)
                         }
                         setLoading(false);
                     })
 
             }
             else {
-                localStorage.removeItem('Bistro-Token')
+                localStorage.removeItem('Token')
 
-                axios.post('https://bistor-boss-server-gamma.vercel.app/logout', {}, {
+                axios.post('http://localhost:5000/logout', {}, {
                     withCredentials: true
                 })
                     .then(res => {
