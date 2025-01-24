@@ -1,0 +1,7 @@
+.active{
+    border: 2px solid royalblue;
+    color:royalblue;
+    padding-right: 4px;
+    padding-left: 4px;
+    border-radius: 5px;
+}
