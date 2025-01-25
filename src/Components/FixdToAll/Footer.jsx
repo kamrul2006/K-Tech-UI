@@ -12,7 +12,7 @@ const Footer = () => {
             <img src={logo} alt="K-Tech" className="w-12 md:w-14 bg-white rounded-se-3xl" />
             <h2 className="text-2xl md:text-3xl font-bold">K-Tech</h2>
           </div>
-          <p className="text-gray-400 text-sm md:text-base">
+          <p className="text-gray-400 text-sm md:text-base font-sans">
             Revolutionizing technology, one innovation at a time. Join us in shaping the future.
           </p>
         </div>
@@ -20,7 +20,7 @@ const Footer = () => {
         {/* Contact Information */}
         <div>
           <h3 className="text-lg font-semibold mb-4">Contact Information</h3>
-          <ul className="space-y-2 text-gray-300 text-sm md:text-base">
+          <ul className="space-y-2 text-gray-300 text-sm md:text-base font-sans">
             <li>
               <strong>Email:</strong> support@k-tech.com
             </li>
@@ -36,18 +36,18 @@ const Footer = () => {
         {/* Quick Links */}
         <div>
           <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
-          <ul className="space-y-2 text-gray-300 text-sm md:text-base">
+          <ul className="space-y-2 text-gray-300 text-sm md:text-base font-semibold">
             <li>
-              <a href="/" className="hover:text-gray-100">Home</a>
+              <a href="/" className="hover:text-blue-400 hover:underline">Home</a>
             </li>
             <li>
-              <a href="/products" className="hover:text-gray-100">Products</a>
+              <a href="/products" className="hover:text-blue-400 hover:underline">Products</a>
             </li>
             <li>
-              <a href="/about" className="hover:text-gray-100">About Us</a>
+              <a href="/about" className="hover:text-blue-400 hover:underline">About Us</a>
             </li>
             <li>
-              <a href="/contact" className="hover:text-gray-100">Contact</a>
+              <a href="/contact" className="hover:text-blue-400 hover:underline">Contact</a>
             </li>
           </ul>
         </div>
@@ -97,7 +97,7 @@ const Footer = () => {
       </div>
 
       {/* Bottom Section */}
-      <div className="border-t border-gray-700 mt-8 pt-4 text-center text-gray-400 text-sm md:text-base">
+      <div className="border-t border-gray-700 mt-8 pt-4 text-center text-gray-400 text-sm md:text-base font-sans">
         <p>&copy; {new Date().getFullYear()} K-Tech. All Rights Reserved.</p>
         <p>Designed and Developed by K-Tech Team.</p>
       </div>

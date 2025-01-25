@@ -26,7 +26,7 @@ const Navbar = () => {
 
 
   return (
-    <nav className="bg-white/70 backdrop-blur-xl px-4 md:px-16 py-4 fixed top-0 w-full z-50 shadow-md">
+    <nav className="bg-white/70 backdrop-blur-xl px-4 md:px-16 py-2 fixed top-0 w-full z-50 shadow-md">
       <div className="flex justify-between items-center">
         {/* Logo */}
         <div className="text-2xl font-bold flex items-center gap-2">
@@ -47,14 +47,12 @@ const Navbar = () => {
           )}
         </button>
 
-        {/* Desktop Navigation Links */}
-        <div className="hidden md:flex items-center space-x-6">
-
-          <div className="flex items-center justify-center gap-4 bg-blue-200 rounded-full px-8 py-1 font-serif font-semibold">
+        <div className="hidden md:flex items-center justify-center gap-4 bg-blue-200 rounded-full px-8 py-1 font-semibold">
             {navLinks}
           </div>
 
-
+        {/* Desktop Navigation Links */}
+        <div className="hidden md:flex items-center space-x-6">
           {!user ?
             <Link to={'/login'}>
               <button
@@ -65,17 +63,17 @@ const Navbar = () => {
             </Link> :
             <div className="relative">
               <img src={user.photoURL ? `${user.photoURL}` : "https://cdn-icons-png.flaticon.com/512/9385/9385289.png"}
-                className="border-gray-300 border-2 w-14 h-14 rounded-full cursor-pointer hover:border-gray-600"
+                className="border-blue-400 border-2 w-14 h-14 rounded-full cursor-pointer hover:border-gray-600"
                 onClick={toggleDropdown}
                 aria-expanded={isDropdownOpen}
               />
               {isDropdownOpen && (
                 <div
-                  className="absolute right-0 mt-1 w-56 bg-red-200 text-black rounded shadow-lg"
+                  className="absolute right-0 mt-1 w-56 bg-blue-200 text-black rounded shadow-lg"
                   role="menu"
                 >
-                  <div className="px-4 py-2 font-semibold flex items-center gap-2">
-                    <AiOutlineUser className="text-lg" />{user?.displayName}
+                  <div className="px-4 py-2 font-semibold flex items-center gap-2 text-sm">
+                    <AiOutlineUser className="font-semibold text-lg" />{user?.displayName}
                   </div>
                   <a
                     href="/dashboard"

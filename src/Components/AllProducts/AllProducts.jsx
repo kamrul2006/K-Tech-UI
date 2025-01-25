@@ -1,10 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { BiLeftArrow, BiRightArrow } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import { FiExternalLink } from "react-icons/fi";
+import { FcLike } from "react-icons/fc";
+import { AuthContext } from "../../Auth/Providers/AuthProvider";
 
 const AllProducts = () => {
+    const { user } = useContext(AuthContext)
     const [products, setProducts] = useState([]);
     const [search, setSearch] = useState("");
     const [currentPage, setCurrentPage] = useState(1);
@@ -65,31 +68,34 @@ const AllProducts = () => {
 
                                 <Link to={`/products/${product._id}`}>
                                     <h3
-                                        className="text-xl font-medium text-blue-600 cursor-pointer hover:text-green-600 hover:font-bold mb-4 flex items-center gap-2"
+                                        className=" font-medium text-blue-600 cursor-pointer hover:text-green-600 hover:font-bold mb-4 flex items-center gap-2"
                                     >
-                                        {product.productName} <FiExternalLink  className="text-gray-400"/>
+                                        {product.productName} <FiExternalLink className="text-gray-400" />
                                     </h3>
                                 </Link>
 
                                 {product.tags.map((tag, index) => (
-                                    <span key={index} className="bg-gray-200 text-gray-800 p-1 rounded-full text-xs ml-2 my-4">
+                                    <span key={index} className="bg-gray-200 text-gray-600 p-1 rounded-full text-xs ml-2 my-4">
                                         {tag}
                                     </span>
                                 ))}
 
-                                <p className="text-gray-600 text-sm mt-2">
+                                <p className="text-gray-400 text-sm mt-2 font-bold">
                                     {product.description}
                                 </p>
 
-
-                                {/* <div className="flex justify-between items-center mt-4">
-                                    <span className="text-blue-500 font-semibold">
-                                        ${product.price ? product.price : 100}
-                                    </span>
-                                    <button className="px-4 py-2 bg-blue-500 text-white text-sm font-medium rounded-md hover:bg-blue-600">
-                                        Buy Now
+                                {/* ---------buttons----------- */}
+                                <div className='flex justify-end mr-4'>
+                                    {/* -----like------ */}
+                                    <button
+                                        className={`btn btn-outline btn-sm w-fit`}
+                                        disabled={!user}
+                                    >
+                                        {product.voteCount || 0}
+                                        <span className="text-lg"><FcLike /></span>
                                     </button>
-                                </div> */}
+                                </div>
+
                             </div>
                         </div>
                     ))}
