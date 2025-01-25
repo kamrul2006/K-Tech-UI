@@ -20,7 +20,7 @@ const LoginPage = () => {
     }
 
     useEffect(() => {
-        loadCaptchaEnginge(6);
+        loadCaptchaEnginge(4);
     }, [])
 
     const navigate = useNavigate()
