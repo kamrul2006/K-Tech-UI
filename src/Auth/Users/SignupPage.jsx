@@ -8,6 +8,7 @@ import bg from "../../assets/SignUpBg.png";
 import ill from "../../assets/llg.jpg";
 import UseAxiosPublic from "../../Hooks/UseAxiosPublic";
 
+
 const SignupPage = () => {
     const axiosPublic = UseAxiosPublic();
     const navigate = useNavigate();

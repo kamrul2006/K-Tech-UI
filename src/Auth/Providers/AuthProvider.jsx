@@ -46,8 +46,6 @@ const AuthProvider = ({ children }) => {
     //-----------------------------------forget passWord------------------------
     const [pEmail, setPEmail] = useState(null)
 
-
-
     //------------value here--------------------------
     const authInfo = {
         user, setUser,

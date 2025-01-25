@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const ttmm = [
     {
@@ -111,16 +112,20 @@ const AboutUs = () => {
             </section>
 
             {/* Call to Action */}
-            <section className="bg-blue-800 text-white py-16 px-6 md:px-16 rounded-2xl">
+            <section className="bg-blue-800 mb-4 text-white py-5 md:py-16 px-6 md:px-16 md:rounded-2xl">
                 <div className="text-center">
-                    <h2 className="text-3xl md:text-4xl font-bold">Join K-Tech</h2>
-                    <p className="text-lg text-gray-300 mt-4 max-w-2xl mx-auto">
+                    <h2 className="text-2xl md:text-4xl font-bold">Join K-Tech</h2>
+                    <p className="md:text-lg text-gray-300 mt-4 max-w-2xl mx-auto">
                         Be part of our journey as we drive innovation and create a better future
                         through technology.
                     </p>
-                    <button className="mt-6 px-6 py-3 bg-blue-500 text-white font-medium rounded-md hover:bg-blue-600 transition">
-                        Contact Us
-                    </button>
+
+                    <Link to={'/contact'}>
+                        <button className="mt-6 px-6 py-3 bg-blue-500 text-white font-medium rounded-md hover:bg-blue-600 transition">
+                            Contact Us
+                        </button>
+                    </Link>
+
                 </div>
             </section>
         </div>

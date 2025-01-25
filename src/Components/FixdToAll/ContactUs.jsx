@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaFacebook, FaTwitter, FaInstagram } from "react-icons/fa";
+import { AuthContext } from "../../Auth/Providers/AuthProvider";
 
 const ContactUs = () => {
+const {user}=useContext(AuthContext)
+
     return (
         <div className="bg-gray-50 text-gray-800 md:my-20">
             {/* Hero Section */}
@@ -74,11 +77,13 @@ const ContactUs = () => {
                             <input
                                 type="text"
                                 placeholder="Your Name"
+                                defaultValue={user?.displayName}
                                 className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
                                 required
                             />
                             <input
                                 type="email"
+                                defaultValue={user?.email}
                                 placeholder="Your Email"
                                 className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
                                 required
@@ -101,10 +106,10 @@ const ContactUs = () => {
             </section>
 
             {/* Social Media Section */}
-            <section className="bg-blue-800 text-white py-16 px-6 md:px-16 rounded-3xl">
+            <section className="bg-blue-800 mb-4 text-white py-5 md:py-16 px-6 md:px-16 md:rounded-2xl">
                 <div className="text-center">
-                    <h2 className="text-3xl md:text-4xl font-bold">Follow Us</h2>
-                    <p className="text-lg text-gray-300 mt-4 max-w-2xl mx-auto">
+                    <h2 className="text-2xl md:text-4xl font-bold">Follow Us</h2>
+                    <p className="md:text-lg text-gray-300 mt-4 max-w-2xl mx-auto">
                         Stay updated with the latest news and innovations from K-Tech by following us
                         on social media.
                     </p>
