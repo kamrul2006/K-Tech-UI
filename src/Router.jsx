@@ -8,6 +8,8 @@ import AboutUs from "./Components/FixdToAll/AboutUs";
 import ContactUs from "./Components/FixdToAll/ContactUs";
 import AllProducts from "./Components/AllProducts/AllProducts";
 import ProductDetailsPage from "./Components/AllProducts/ProductDetails";
+import DashBoardLayout from "./Layouts/DashBoardLayout";
+import PrivetRout from "./Auth/Privet/Privetrought";
 
 
 
@@ -47,6 +49,10 @@ const router = createBrowserRouter([
     {
         path: "/register",
         element: <SignupPage />
+    },
+    {
+        path: "/dashboard",
+        element: <PrivetRout><DashBoardLayout/></PrivetRout>
     },
 ]);
 

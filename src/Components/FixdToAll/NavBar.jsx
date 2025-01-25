@@ -48,8 +48,8 @@ const Navbar = () => {
         </button>
 
         <div className="hidden md:flex items-center justify-center gap-4 bg-blue-200 rounded-full px-8 py-1 font-semibold">
-            {navLinks}
-          </div>
+          {navLinks}
+        </div>
 
         {/* Desktop Navigation Links */}
         <div className="hidden md:flex items-center space-x-6">
@@ -75,13 +75,17 @@ const Navbar = () => {
                   <div className="px-4 py-2 font-semibold flex items-center gap-2 text-sm">
                     <AiOutlineUser className="font-semibold text-lg" />{user?.displayName}
                   </div>
-                  <a
-                    href="/dashboard"
-                    className=" px-4 py-2 hover:bg-gray-100 flex items-center gap-2"
-                    role="menuitem"
-                  >
-                    <BiMenu className="text-lg" /> Dashboard
-                  </a>
+
+                  <Link to={"/dashboard"}>
+                    <button
+                      className=" px-4 py-2 w-full hover:bg-gray-100 flex items-center gap-2"
+                      role="menuitem"
+                    >
+                      <BiMenu className="text-lg" /> Dashboard
+                    </button>
+                  </Link>
+
+
                   <button
                     onClick={UserSignOut}
                     className="block w-full text-left px-4 py-2 hover:bg-gray-100 md:flex items-center gap-2"

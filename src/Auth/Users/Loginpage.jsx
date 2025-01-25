@@ -77,7 +77,7 @@ const LoginPage = () => {
 
                 axiosPublic.post('/users', UserInfo)
                     .then(res => {
-                        console.log(res)
+                        // console.log(res)
                         if (res.data.insertedId) {
                         }
                     })
