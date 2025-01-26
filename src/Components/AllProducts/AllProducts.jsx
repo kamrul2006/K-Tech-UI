@@ -1,9 +1,8 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { BiLeftArrow, BiRightArrow } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import { FiExternalLink } from "react-icons/fi";
-import { AuthContext } from "../../Auth/Providers/AuthProvider";
 import UpVoteButton from "./UpVoteButton";
 
 const AllProducts = () => {
@@ -40,6 +39,19 @@ const AllProducts = () => {
     return (
         <div className="min-h-screen bg-gray-100 px-4 py-10">
             <div className="max-w-6xl mx-auto">
+                {/* Page Title and Description */}
+                <div className="mb-8 text-center">
+                    <h1 className="text-4xl font-bold text-blue-600 mb-4">
+                        Explore All Products on K-Tech
+                    </h1>
+                    <p className="text-gray-600 md:px-24 font-semibold">
+                        Discover cutting-edge technology products designed to elevate your lifestyle
+                        and enhance your productivity. From innovative gadgets to smart solutions,
+                        find the perfect product to match your needs. Browse, vote, and explore the
+                        best of K-Tech!
+                    </p>
+                </div>
+
                 {/* Search Bar */}
                 <div className="mb-6">
                     <input
@@ -64,7 +76,6 @@ const AllProducts = () => {
                                 className="w-full h-48 object-cover"
                             />
                             <div className="p-4">
-
                                 <Link to={`/products/${product._id}`}>
                                     <h3
                                         className=" font-medium text-blue-600 cursor-pointer hover:text-green-600 hover:font-bold mb-4 flex items-center gap-2"
@@ -84,7 +95,7 @@ const AllProducts = () => {
                                 </p>
 
                                 {/* ---------buttons----------- */}
-                                <div className='flex justify-end mr-4'>
+                                <div className="flex justify-end mr-4" >
                                     {/* -----like------ */}
                                     <UpVoteButton product={product} />
                                 </div>
@@ -105,11 +116,9 @@ const AllProducts = () => {
                         <BiLeftArrow />
                     </button>
 
-
                     <span className="text-sm">
                         Page {currentPage} of {totalPages}
                     </span>
-
 
                     <button
                         disabled={currentPage === totalPages}
