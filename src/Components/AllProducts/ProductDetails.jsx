@@ -34,19 +34,38 @@ const ProductDetailsPage = () => {
 
     // Handle report button functionality
     const handleReport = () => {
-        if (!user) {
-            toast.error("Please log in to report.");
-            return;
+
+        const reportInfo = {
+            productId: id,
+            name: product.productName,
+            image: product.productImage,
+            description: product.description
         }
 
-        fetch(`/api/products/${id}/report`, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ userId: user.id }),
-        })
-            .then((res) => res.json())
-            .then(() => toast.success("Product reported successfully!"))
-            .catch((error) => console.error("Error reporting product:", error));
+        Swal.fire({
+            title: "Are you sure want to report?",
+            text: "you are reporting this product.",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, reported it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+
+                axiosSecurity.post('/reports', reportInfo)
+                    .then(res => {
+                        if (res.data.insertedId) {
+                            Swal.fire({
+                                title: "Reported !",
+                                text: "This product has been reported.",
+                                icon: "success"
+                            });
+                        }
+                    })
+            }
+        });
+
     };
 
     // Handle form submission for posting a review
@@ -127,6 +146,7 @@ const ProductDetailsPage = () => {
 
                             <button
                                 onClick={handleReport}
+                                disabled={!user}
                                 className="btn btn-outline btn-error btn-sm ml-3"
                             >
                                 Report
@@ -169,7 +189,7 @@ const ProductDetailsPage = () => {
                 )}
             </div>
 
-            {/* Post Review Section */}
+            {/* -------------------Post Review Section ---------------------*/}
             <div className="bg-white shadow rounded p-6">
                 <h2 className="text-xl font-bold mb-4">Post a Review</h2>
                 <form onSubmit={handleSubmitReview}>
@@ -238,6 +258,7 @@ const ProductDetailsPage = () => {
 
 
                     <button
+                        disabled={!user}
                         type="submit"
                         className="btn btn-success btn-outline btn-sm px-5"
                     >

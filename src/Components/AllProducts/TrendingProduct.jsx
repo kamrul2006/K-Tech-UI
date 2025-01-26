@@ -25,7 +25,9 @@ const TrendingProducts = () => {
                                 alt={product.productName}
                                 className="w-full h-48 object-cover rounded-lg mb-4"
                             />
-<hr />
+
+                            <hr />
+
                             <Link to={`/products/${product._id}`}>
                                 <h3
                                     className=" font-medium text-blue-600 cursor-pointer hover:text-green-600 hover:font-bold my-4 flex items-center gap-2"
@@ -47,20 +49,21 @@ const TrendingProducts = () => {
                             </div>
 
                             <div className="flex justify-end items-center" onCanPlay={refetch()}>
-                                <UpVoteButton product={product} refetch={refetch}/>
+                                <UpVoteButton product={product} refetch={refetch} />
                             </div>
 
                         </div>
                     ))}
                 </div>
-                <button
-                    onClick={() => navigate("/products")}
-                    className="mt-8 w-fit mx-auto bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 text-white py-3 px-8 rounded-full flex items-center gap-3 hover:scale-105 hover:shadow-lg transition-all duration-300 ease-in-out"
-                >
-                    <span>Show All Products</span>
-                    <FaArrowRight className="text-white w-5 h-5" />
-                </button>
 
+                <Link to={"/products"}>
+                    <button
+                        className="mt-8 w-fit mx-auto bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 text-white py-3 px-8 rounded-full flex items-center gap-3 hover:scale-105 hover:shadow-lg transition-all duration-300 ease-in-out"
+                    >
+                        <span>Show All Products</span>
+                        <FaArrowRight className="text-white w-5 h-5" />
+                    </button>
+                </Link>
 
             </div>
         </section>
