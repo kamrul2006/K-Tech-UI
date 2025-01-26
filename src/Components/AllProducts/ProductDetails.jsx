@@ -7,28 +7,29 @@ import KTechLoader from "../FixdToAll/KLoader";
 import { FcLike } from "react-icons/fc";
 import { FiExternalLink } from "react-icons/fi";
 import UpVoteButton from "./UpVoteButton";
+import axiosSecure from "../../Hooks/axiosSecure";
+import Swal from "sweetalert2";
 
 const ProductDetailsPage = () => {
     const { id } = useParams();
     const { user } = useContext(AuthContext);
-    //   const [product, setProduct] = useState([]);
     const product = useLoaderData()
 
+    const axiosSecurity = axiosSecure()
+
+    const [eff, setEff] = useState(true)
     const [reviews, setReviews] = useState([]);
-    const [reviewData, setReviewData] = useState({
-        description: "",
-        rating: 0,
-    });
 
     // Fetch product and reviews
     useEffect(() => {
-        fetch(`/api/reviews/${id}`)
+        fetch(`http://localhost:5000/reviews`)
             .then((res) => res.json())
-            .then((data) => setReviews(data))
+            .then((data) => {
+                const rev = data.filter(d => d.productId == id)
+                setReviews(rev)
+            })
             .catch((error) => console.error("Error fetching reviews:", error));
-    }, [id]);
-
-    // console.log(product)
+    }, [id, eff]);
 
 
     // Handle report button functionality
@@ -51,35 +52,36 @@ const ProductDetailsPage = () => {
     // Handle form submission for posting a review
     const handleSubmitReview = (e) => {
         e.preventDefault();
-        if (!reviewData.rating || !reviewData.description) {
-            toast.error("All fields are required!");
-            return;
+
+        const name = user?.displayName
+        const image = user?.photoURL
+        const description = e.target.des.value
+        const rating = e.target.rat.value
+
+        const reviewData = {
+            productId: id,
+            name,
+            image,
+            description,
+            rating
         }
 
-        fetch("/api/reviews", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-                ...reviewData,
-                productId: id,
-                reviewerName: user.name,
-                reviewerImage: user.image,
-            }),
-        })
-            .then((res) => res.json())
-            .then(() => {
-                toast.success("Review posted successfully!");
-                setReviewData({ description: "", rating: 0 });
-                setReviews((prev) => [
-                    ...prev,
-                    {
-                        ...reviewData,
-                        reviewerName: user.name,
-                        reviewerImage: user.image,
-                    },
-                ]);
+        axiosSecurity.post('/reviews', reviewData)
+            .then(res => {
+                if (res.data.insertedId) {
+                    Swal.fire({
+                        position: "top-end",
+                        icon: "success",
+                        title: "Your review has been saved",
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                }
+                setEff(!eff)
             })
-            .catch((error) => console.error("Error posting review:", error));
+
+
+        // console.log(reviewData)
     };
 
     if (!product) return <div>
@@ -88,7 +90,8 @@ const ProductDetailsPage = () => {
 
     return (
         <div className="container mx-auto p-4">
-            {/* Product Details Section */}
+
+            {/* ------------Product Details Section --------------*/}
             <div className="bg-white shadow rounded p-6 mb-8">
                 <div className="flex flex-col md:flex-row items-start">
                     <img
@@ -120,7 +123,7 @@ const ProductDetailsPage = () => {
                         </a>
                         <div className="flex items-center mt-4">
 
-                        <UpVoteButton product={product} />
+                            <UpVoteButton product={product} />
 
                             <button
                                 onClick={handleReport}
@@ -133,30 +136,31 @@ const ProductDetailsPage = () => {
                 </div>
             </div>
 
-            {/* Reviews Section */}
+            {/* ------------------Reviews Section -------------------------*/}
             <div className="bg-white shadow rounded p-6 mb-8">
                 <h2 className="text-xl font-bold mb-4">Reviews</h2>
                 {reviews.length === 0 ? (
                     <p className="text-gray-600">No reviews yet. Be the first to review!</p>
                 ) : (
-                    <div className="grid gap-4">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         {reviews.map((review, index) => (
                             <div
                                 key={index}
                                 className="border p-4 rounded shadow-sm flex items-start"
                             >
                                 <img
-                                    src={review.reviewerImage}
-                                    alt={review.reviewerName}
+                                    src={review.image}
+                                    alt={review.name}
                                     className="w-12 h-12 rounded-full mr-4"
                                 />
                                 <div>
-                                    <h3 className="font-bold">{review.reviewerName}</h3>
-                                    <p className="text-gray-700 mt-2">{review.description}</p>
-                                    <div className="flex items-center mt-2">
-                                        {[...Array(review.rating)].map((_, i) => (
-                                            <FaStar key={i} className="text-yellow-500" />
-                                        ))}
+                                    <h3 className="font-bold">{review.name}</h3>
+
+                                    <p className="text-gray-700 mt-2 text-xs p-1 border rounded bg-gray-50 font-semibold">{review.description}</p>
+
+                                    <div className="flex items-center gap-1 mt-2">
+                                        <p className="">Ratings: {review.rating}</p>
+                                        <FaStar className="text-yellow-500" />
                                     </div>
                                 </div>
                             </div>
@@ -209,28 +213,17 @@ const ProductDetailsPage = () => {
                     <div className="mb-4">
                         <label className="block font-semibold text-gray-700">Review Description</label>
                         <textarea
-                            value={reviewData.description}
-                            onChange={(e) =>
-                                setReviewData((prev) => ({
-                                    ...prev,
-                                    description: e.target.value,
-                                }))
-                            }
+                            id="des"
                             className="w-full border px-4 py-2 rounded mt-1"
                             rows="4"
                             required
                         />
                     </div>
+
                     <div className="mb-4">
                         <label className="block text-gray-700 font-semibold">Rating</label>
                         <select
-                            value={reviewData.rating}
-                            onChange={(e) =>
-                                setReviewData((prev) => ({
-                                    ...prev,
-                                    rating: parseInt(e.target.value, 10),
-                                }))
-                            }
+                            id="rat"
                             className="w-full border px-4 py-2 rounded mt-1"
                             required
                         >
@@ -242,6 +235,8 @@ const ProductDetailsPage = () => {
                             ))}
                         </select>
                     </div>
+
+
                     <button
                         type="submit"
                         className="btn btn-success btn-outline btn-sm px-5"

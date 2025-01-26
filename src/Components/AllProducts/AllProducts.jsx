@@ -64,45 +64,55 @@ const AllProducts = () => {
                 </div>
 
                 {/* Product Cards */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {products.map((product) => (
-                        <div
-                            key={product.id}
-                            className="bg-white rounded-lg shadow-md overflow-hidden"
-                        >
-                            <img
-                                src={product.productImage}
-                                alt={product.productName}
-                                className="w-full h-48 object-cover"
-                            />
-                            <div className="p-4">
-                                <Link to={`/products/${product._id}`}>
-                                    <h3
-                                        className=" font-medium text-blue-600 cursor-pointer hover:text-green-600 hover:font-bold mb-4 flex items-center gap-2"
-                                    >
-                                        {product.productName} <FiExternalLink className="text-gray-400" />
-                                    </h3>
-                                </Link>
+                <div className=" min-h-screen">
 
-                                {product.tags.map((tag, index) => (
-                                    <span key={index} className="bg-gray-200 text-gray-600 p-1 rounded-full text-xs ml-2 my-4">
-                                        {tag}
-                                    </span>
-                                ))}
 
-                                <p className="text-gray-400 text-sm mt-2 font-bold">
-                                    {product.description}
-                                </p>
+                    {products.length < 1 ? <div
+                        className="text-5xl text-blue-700 flex items-center justify-center min-h-[300px]">
+                        <p>  No match product found.</p>
+                    </div> :
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                            {products.map((product) => (
+                                <div
+                                    key={product.id}
+                                    className="bg-white rounded-lg shadow-md overflow-hidden"
+                                >
+                                    <img
+                                        src={product.productImage}
+                                        alt={product.productName}
+                                        className="w-full h-48 object-cover"
+                                    />
+                                    <div className="p-4">
+                                        <Link to={`/products/${product._id}`}>
+                                            <h3
+                                                className=" font-medium text-blue-600 cursor-pointer hover:text-green-600 hover:font-bold mb-4 flex items-center gap-2"
+                                            >
+                                                {product.productName} <FiExternalLink className="text-gray-400" />
+                                            </h3>
+                                        </Link>
 
-                                {/* ---------buttons----------- */}
-                                <div className="flex justify-end mr-4" >
-                                    {/* -----like------ */}
-                                    <UpVoteButton product={product} />
+                                        {product.tags.map((tag, index) => (
+                                            <span key={index} className="bg-gray-200 text-gray-600 p-1 rounded-full text-xs ml-2 my-4">
+                                                {tag}
+                                            </span>
+                                        ))}
+
+                                        <p className="text-gray-400 text-sm mt-2 font-bold">
+                                            {product.description}
+                                        </p>
+
+                                        {/* ---------buttons----------- */}
+                                        <div className="flex justify-end mr-4" >
+                                            {/* -----like------ */}
+                                            <UpVoteButton product={product} />
+                                        </div>
+
+                                    </div>
                                 </div>
+                            ))}
+                        </div>}
 
-                            </div>
-                        </div>
-                    ))}
+
                 </div>
 
                 {/* Pagination */}

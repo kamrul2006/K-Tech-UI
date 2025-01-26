@@ -2,16 +2,14 @@ import React, { useContext, useState } from 'react';
 import { AuthContext } from '../../Auth/Providers/AuthProvider';
 import { FcLike } from 'react-icons/fc';
 import { useNavigate, useRevalidator } from 'react-router-dom';
-import UseProduct from '../../Hooks/UseProduct';
 import axiosSecure from '../../Hooks/axiosSecure';
 
-const UpVoteButton = ({ product }) => {
+const UpVoteButton = ({ product, refetch }) => {
     const { user } = useContext(AuthContext)
     const navigate = useNavigate()
     const axiosSecurity = axiosSecure()
     const { revalidate } = useRevalidator();
 
-    const [, refetch] = UseProduct()
     const [votes, setVotes] = useState({});
 
 
@@ -37,8 +35,8 @@ const UpVoteButton = ({ product }) => {
         axiosSecurity.patch(`/products/${id}`)
             .then(res => {
                 if (res.data.modifiedCount > 0) {
-                    refetch()
                     revalidate()
+                    refetch()
                 }
             });
     };
