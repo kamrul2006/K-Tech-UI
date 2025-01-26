@@ -11,6 +11,7 @@ import ProductDetailsPage from "./Components/AllProducts/ProductDetails";
 import DashBoardLayout from "./Layouts/DashBoardLayout";
 import PrivetRout from "./Auth/Privet/Privetrought";
 import UserProfilePage from "./Components/DashBoard/UserTools/UserHome";
+import AddProductPage from "./Components/DashBoard/UserTools/AddProductPage";
 
 
 
@@ -61,7 +62,8 @@ const router = createBrowserRouter([
                 element: <UserProfilePage />
             },
             {
-                path: "/dashboard/add-product"
+                path: "/dashboard/add-product",
+                element: <AddProductPage />
             },
         ]
     },

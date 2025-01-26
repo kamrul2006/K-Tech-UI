@@ -88,7 +88,7 @@ const Sidebar = () => {
 
 
     return (
-        <div className="sticky top-0 mt-10">
+        <div className="sticky top-0 ">
             {/* Sidebar */}
             <div
                 className={`bg-blue-400 md:w-64 ${isOpen ? "w-8 rounded-r-full md:rounded-none" : "w-16 rounded-r-full  py-5 md:rounded-none"
