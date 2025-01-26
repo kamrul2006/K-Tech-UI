@@ -19,7 +19,7 @@ const AllProducts = () => {
             const response = await axios.get(
                 `http://localhost:5000/api/products?search=${search}&page=${currentPage}&limit=${itemsPerPage}`
             );
-            setProducts(response.data.products);
+            setProducts(response.data.products.filter(pr => pr?.Status != 'pending'));
             setTotalPages(response.data.totalPages);
         } catch (error) {
             console.error("Error fetching products:", error);

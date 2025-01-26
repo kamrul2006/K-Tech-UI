@@ -31,10 +31,11 @@ const AddProductPage = () => {
             },
             timestamp: new Date(),
             voteCount: 0,
+            Status: 'pending'
         };
 
         // console.log(productData)
-        axiosSecurity.post('/ptr-products', productData)
+        axiosSecurity.post('/products', productData)
             .then(res => {
                 if (res.data.insertedId) {
                     Swal.fire({
@@ -42,6 +43,8 @@ const AddProductPage = () => {
                         text: "This product has been submitted for review.",
                         icon: "success"
                     });
+
+                    navigate('/dashboard/my-product')
                 }
             })
 

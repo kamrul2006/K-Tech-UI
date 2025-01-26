@@ -88,11 +88,11 @@ const Sidebar = () => {
 
 
     return (
-        <div className="sticky top-0 ">
+        <div className="fixed md:pt-16">
             {/* Sidebar */}
             <div
                 className={`bg-blue-400 md:w-64 ${isOpen ? "w-8 rounded-r-full md:rounded-none" : "w-16 rounded-r-full  py-5 md:rounded-none"
-                    } md:min-h-screen transition-all duration-300 fixed md:static uppercase font-serif`}
+                    } md:min-h-screen transition-all duration-300 fixed md:static uppercase font-serif md:h-full`}
             >
 
                 <div className="p-4 flex items-center justify-between md:justify-start">
@@ -115,19 +115,20 @@ const Sidebar = () => {
 
                         <ul className="space-y-2">
                             {menuItems.map((item) => (
-                                <li
-                                    key={item.name}
-                                    className={`flex items-center gap-3 px-6 py-2 cursor-pointer ${activeItem === item.name ? "bg-blue-600 text-white" : "hover:bg-blue-600"
-                                        }`}
-                                    onClick={() => setActiveItem(item.name)}
-                                >
-                                    <Link to={item.path} className="flex items-center gap-3">
+                                <Link to={item.path} className="flex items-center gap-3 w-full">
+                                    <li
+                                        key={item.name}
+                                        className={`flex items-center gap-3 px-6 py-2 cursor-pointer w-full ${activeItem === item.name ? "bg-blue-600 text-white" : "hover:bg-blue-600"
+                                            }`}
+                                        onClick={() => setActiveItem(item.name)}
+                                    >
+
                                         {item.icon}
                                         <span className={`hidden md:block`}>
                                             {item.name}
                                         </span>
-                                    </Link>
-                                </li>
+
+                                    </li></Link>
                             ))}
                         </ul>
                     </div>
