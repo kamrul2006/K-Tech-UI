@@ -10,6 +10,7 @@ import AllProducts from "./Components/AllProducts/AllProducts";
 import ProductDetailsPage from "./Components/AllProducts/ProductDetails";
 import DashBoardLayout from "./Layouts/DashBoardLayout";
 import PrivetRout from "./Auth/Privet/Privetrought";
+import UserProfilePage from "./Components/DashBoard/UserTools/UserHome";
 
 
 
@@ -30,7 +31,7 @@ const router = createBrowserRouter([
             {
                 path: `/products/:id`,
                 element: <ProductDetailsPage />,
-                loader: ({params})=>fetch(`http://localhost:5000/products/${params.id}`)
+                loader: ({ params }) => fetch(`http://localhost:5000/products/${params.id}`)
             },
             {
                 path: '/about',
@@ -52,7 +53,17 @@ const router = createBrowserRouter([
     },
     {
         path: "/dashboard",
-        element: <PrivetRout><DashBoardLayout/></PrivetRout>
+        element: <PrivetRout><DashBoardLayout /></PrivetRout>,
+        children: [
+            // ---------------------user tools-----------
+            {
+                path: "/dashboard/userHome",
+                element: <UserProfilePage />
+            },
+            {
+                path: "/dashboard/add-product"
+            },
+        ]
     },
 ]);
 

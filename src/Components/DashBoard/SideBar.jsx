@@ -2,10 +2,6 @@ import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import {
     FaHome,
-    FaCalendarAlt,
-    FaHistory,
-    FaShoppingCart,
-    FaStar,
     FaBook,
     FaBars,
     FaUsers,
@@ -14,6 +10,8 @@ import { MdFoodBank } from "react-icons/md";
 import { TfiMenuAlt } from "react-icons/tfi";
 import axiosSecure from "../../Hooks/axiosSecure";
 import { AuthContext } from "../../Auth/Providers/AuthProvider";
+import { IoBagAdd } from "react-icons/io5";
+import { AiOutlineProduct } from "react-icons/ai";
 
 const Sidebar = () => {
     const { user } = useContext(AuthContext)
@@ -30,12 +28,9 @@ const Sidebar = () => {
 
 
     const UserMenuItems = [
-        { name: "User Home", icon: <FaHome />, path: "/dashboard/user" },
-        { name: "Reservation", icon: <FaCalendarAlt />, path: "/dashboard/reservation" },
-        { name: "Payment History", icon: <FaHistory />, path: "/dashboard/payment-history" },
-        { name: "My Cart", icon: <FaShoppingCart />, path: "/dashboard/cart" },
-        { name: "Add Review", icon: <FaStar />, path: "/dashboard/add-review" },
-        { name: "My Booking", icon: <FaBook />, path: "/dashboard/my-booking" },
+        { name: "User Home", icon: <FaHome />, path: "/dashboard/userHome" },
+        { name: "Add Product", icon: <IoBagAdd />, path: "/dashboard/add-product" },
+        { name: "My Products", icon: <AiOutlineProduct />, path: "/dashboard/my-product" },
     ];
 
     const AdminMenuItems = [
@@ -93,7 +88,7 @@ const Sidebar = () => {
 
 
     return (
-        <div className="sticky top-0">
+        <div className="sticky top-0 mt-10">
             {/* Sidebar */}
             <div
                 className={`bg-blue-400 md:w-64 ${isOpen ? "w-8 rounded-r-full md:rounded-none" : "w-16 rounded-r-full  py-5 md:rounded-none"
