@@ -3,11 +3,10 @@ import axios from "axios";
 import { BiLeftArrow, BiRightArrow } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import { FiExternalLink } from "react-icons/fi";
-import { FcLike } from "react-icons/fc";
 import { AuthContext } from "../../Auth/Providers/AuthProvider";
+import UpVoteButton from "./UpVoteButton";
 
 const AllProducts = () => {
-    const { user } = useContext(AuthContext)
     const [products, setProducts] = useState([]);
     const [search, setSearch] = useState("");
     const [currentPage, setCurrentPage] = useState(1);
@@ -87,13 +86,7 @@ const AllProducts = () => {
                                 {/* ---------buttons----------- */}
                                 <div className='flex justify-end mr-4'>
                                     {/* -----like------ */}
-                                    <button
-                                        className={`btn btn-outline btn-sm w-fit`}
-                                        disabled={!user}
-                                    >
-                                        {product.voteCount || 0}
-                                        <span className="text-lg"><FcLike /></span>
-                                    </button>
+                                    <UpVoteButton product={product} />
                                 </div>
 
                             </div>

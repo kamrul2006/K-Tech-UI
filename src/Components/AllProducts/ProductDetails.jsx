@@ -6,6 +6,7 @@ import { AuthContext } from "../../Auth/Providers/AuthProvider";
 import KTechLoader from "../FixdToAll/KLoader";
 import { FcLike } from "react-icons/fc";
 import { FiExternalLink } from "react-icons/fi";
+import UpVoteButton from "./UpVoteButton";
 
 const ProductDetailsPage = () => {
     const { id } = useParams();
@@ -29,32 +30,6 @@ const ProductDetailsPage = () => {
 
     // console.log(product)
 
-    // Handle upvote functionality
-    const handleUpvote = () => {
-        if (!user) {
-            toast.error("Please log in to upvote.");
-            return;
-        }
-
-        fetch(`/api/products/${id}/upvote`, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ userId: user.id }),
-        })
-            .then((res) => res.json())
-            .then((data) => {
-                if (data.error) {
-                    toast.error(data.error);
-                } else {
-                    setProduct((prev) => ({
-                        ...prev,
-                        votes: prev.votes + 1,
-                    }));
-                    toast.success("Upvoted successfully!");
-                }
-            })
-            .catch((error) => console.error("Error upvoting:", error));
-    };
 
     // Handle report button functionality
     const handleReport = () => {
@@ -145,17 +120,7 @@ const ProductDetailsPage = () => {
                         </a>
                         <div className="flex items-center mt-4">
 
-
-                            <button
-                                className={`btn btn-outline btn-sm w-fit`}
-                                onClick={() => handleUpvote(product._id)}
-                                disabled={!user}
-                            >
-                                {product.voteCount || 0}
-                                <span className="text-lg"><FcLike /></span>
-                            </button>
-
-
+                        <UpVoteButton product={product} />
 
                             <button
                                 onClick={handleReport}

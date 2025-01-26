@@ -71,7 +71,7 @@ const Sidebar = () => {
         fetchUserRole();
     }, [user?.email]);
 
-    console.log(user.email)
+    // console.log(user.email)
 
     useEffect(() => {
         if (userRole === 'admin') {
@@ -86,7 +86,7 @@ const Sidebar = () => {
         }
     }, [userRole]);
 
-    console.log(userRole);
+    // console.log(userRole);
 
 
 
