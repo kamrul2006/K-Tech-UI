@@ -88,13 +88,6 @@ function PaymentPage() {
                     });
                 setSuccess("Payment successful!");
                 setTrId(paymentIntent.id)
-
-
-
-
-
-
-
             }
         }
     };
