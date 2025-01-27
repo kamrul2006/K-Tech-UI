@@ -10,10 +10,8 @@ const ManageCoupon = () => {
     const [modalIsOpen, setModalIsOpen] = useState(false);
     const [selectedCoupon, setSelectedCoupon] = useState(null);
 
+    const [EE, setEE] = useState(false)
     const axiosSecurity = axiosSecure()
-
-
-
 
     // Fetch coupons from the server
     useEffect(() => {
@@ -27,16 +25,16 @@ const ManageCoupon = () => {
             }
         };
         fetchCoupons();
-    }, []);
+    }, [EE]);
 
     // Add new coupon
     const onSubmit = async (data) => {
 
         // console.log(data)
-
         axiosSecurity.post("/coupons", data)
             .then((res) => {
                 if (res.data.insertedId) {
+                    setEE(!EE)
                     Swal.fire({
                         title: "Product added",
                         text: "This product has been submitted for review.",
@@ -46,7 +44,6 @@ const ManageCoupon = () => {
                 }
             });
     };
-
 
     // Handle delete coupon
     const handleDelete = async (id) => {
@@ -63,6 +60,8 @@ const ManageCoupon = () => {
                 axiosSecurity.delete(`/coupons/${id}`)
                     .then(res => {
                         if (res.data.deletedCount > 0) {
+                            setEE(!EE)
+
                             Swal.fire({
                                 title: "Deleted!",
                                 text: "Your file has been deleted.",
@@ -79,6 +78,7 @@ const ManageCoupon = () => {
         setSelectedCoupon(coupon);
         reset({
             couponCode: coupon.couponCode,
+            // expiryDate: new Date(coupon.expiryDate).toLocaleDateString(),
             expiryDate: coupon.expiryDate,
             description: coupon.description,
             discountAmount: coupon.discountAmount,
@@ -88,27 +88,37 @@ const ManageCoupon = () => {
 
     // Close modal
     const closeModal = () => {
+        reset({
+            couponCode: null,
+            expiryDate: null,
+            description: null,
+            discountAmount: null
+        });
         setModalIsOpen(false);
+
     };
 
     // Update coupon
     const handleUpdate = async (data) => {
-        try {
-            const response = await fetch(`/api/coupons/${selectedCoupon._id}`, {
-                method: "PUT",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(data),
-            });
-            const result = await response.json();
-            if (response.ok) {
-                Swal.fire("Updated", "Coupon updated successfully", "success");
-                setCoupons(coupons.map(coupon => coupon._id === selectedCoupon._id ? { ...coupon, ...data } : coupon));
-                closeModal();
-            }
-        } catch (error) {
-            console.error("Error updating coupon:", error);
-            Swal.fire("Error", "Failed to update coupon", "error");
-        }
+
+        // console.log(data, selectedCoupon._id)
+
+        axiosSecurity.patch(`/coupons/${selectedCoupon._id}`, data)
+            .then(res => {
+                // console.log(res.data)
+                if (res.data.modifiedCount > 0) {
+                    closeModal();
+                    setEE(!EE)
+                    Swal.fire({
+                        position: "top-end",
+                        icon: "success",
+                        title: `Coupon is Updated.`,
+                        showConfirmButton: false,
+                        timer: 2000
+                    });
+
+                }
+            })
     };
 
     return (
@@ -117,7 +127,7 @@ const ManageCoupon = () => {
                 🎟️ Manage Coupons
             </h1>
 
-            <div className="flex flex-col lg:flex-row gap-8">
+            <div className="flex flex-col md:justify-center lg:flex-row gap-8 md:gap-4">
                 {/* Coupon Add Form */}
                 <div className="w-full lg:w-1/3 bg-white shadow-lg rounded-xl p-6">
                     <h2 className="text-xl font-semibold text-gray-800 mb-4">
@@ -197,7 +207,7 @@ const ManageCoupon = () => {
                 </div>
 
                 {/* Coupons List */}
-                <div className="w-full lg:w-2/3">
+                <div className="w-full lg:w-2/3 border-2 p-2 bg-gray-200 rounded-lg">
                     <h2 className="text-xl font-semibold text-gray-800 mb-4">
                         Current Coupons
                     </h2>
@@ -207,12 +217,20 @@ const ManageCoupon = () => {
                                 key={coupon._id}
                                 className="bg-white shadow-md rounded-lg p-4 space-y-3"
                             >
+
+
                                 <h3 className="text-lg font-bold text-gray-800">
                                     {coupon.couponCode}
                                 </h3>
+
+                                <hr />
+
                                 <p className="text-sm text-gray-600">
-                                    <strong>Expiry Date:</strong> {new Date(coupon.expiryDate).toLocaleDateString()}
+                                    <strong>Expiry Date:</strong> <br /> {new Date(coupon.expiryDate).toLocaleDateString()}
                                 </p>
+
+                                <hr />
+
                                 <p className="text-sm text-gray-600">
                                     <strong>Description:</strong> {coupon.description}
                                 </p>
@@ -222,13 +240,13 @@ const ManageCoupon = () => {
                                 <div className="flex justify-between gap-4">
                                     <button
                                         onClick={() => openModal(coupon)}
-                                        className="w-full bg-yellow-500 text-white py-1.5 rounded-md font-medium hover:bg-yellow-600 transition"
+                                        className="btn btn-sm btn-info btn-outline"
                                     >
                                         Edit
                                     </button>
                                     <button
                                         onClick={() => handleDelete(coupon._id)}
-                                        className="w-full bg-red-500 text-white py-1.5 rounded-md font-medium hover:bg-red-600 transition"
+                                        className="btn btn-sm btn-error btn-outline"
                                     >
                                         Delete
                                     </button>
