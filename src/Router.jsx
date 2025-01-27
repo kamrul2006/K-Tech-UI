@@ -19,6 +19,7 @@ import ProductReviewQueue from "./Components/DashBoard/ModeratorTools/ProductToR
 import ReportedContentsPage from "./Components/DashBoard/ModeratorTools/ReportedPage";
 import AllUsers from "./Components/DashBoard/AdminTools/AllUsers";
 import AdminStatisticsPage from "./Components/DashBoard/AdminTools/AdminStatisticsPage";
+import ManageCouponPage from "./Components/DashBoard/AdminTools/ManageCouponPage";
 
 
 
@@ -104,6 +105,10 @@ const router = createBrowserRouter([
             {
                 path: "/dashboard/admin",
                 element: <AdminStatisticsPage />
+            },
+            {
+                path: "/dashboard/coupons",
+                element: <ManageCouponPage />
             },
         ]
     },

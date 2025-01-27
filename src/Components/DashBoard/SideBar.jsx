@@ -36,7 +36,7 @@ const Sidebar = () => {
     const AdminMenuItems = [
         { name: "Statistics", icon: <IoStatsChartSharp />, path: "/dashboard/admin" },
         { name: " Manage Users", icon: <FaUsers />, path: "/dashboard/AllUsers" },
-        { name: "Manage Coupons", icon: <RiCoupon3Line />, path: "/dashboard/addFood" },
+        { name: "Manage Coupons", icon: <RiCoupon3Line />, path: "/dashboard/coupons" },
     ];
 
     const ModeratorMenuItems = [

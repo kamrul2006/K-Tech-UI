@@ -28,6 +28,7 @@
 - **React Tags**: For handling tag-based inputs in forms.
 - **React Icons**: For clean and modern icons across the site.
 - **Re-Charts** : For making beautiful Stat page.
+- **React Modal**: To show modal.
 - **SweetAlert2**: For stylish pop-up notifications and confirmations.
 - **Axios**: For HTTP requests between frontend and backend.
 - **react-swiper**: To make the banner components.
