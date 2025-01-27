@@ -51,6 +51,7 @@ const SignupPage = () => {
                     name: Name,
                     email: Email,
                     role: "user",
+                    isSubscribed: false
                 };
 
                 axiosPublic.post("/users", UserInfo).then((res) => {
@@ -79,6 +80,7 @@ const SignupPage = () => {
                     name: res.user.displayName,
                     email: res.user.email,
                     role: "user",
+                    isSubscribed: false
                 };
 
                 axiosPublic.post("/users", UserInfo).then(() => { });

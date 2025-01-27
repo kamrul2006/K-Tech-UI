@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useLoaderData, useParams } from "react-router-dom";
 import { FaStar } from "react-icons/fa";
-import { toast } from "react-toastify";
 import { AuthContext } from "../../Auth/Providers/AuthProvider";
 import KTechLoader from "../FixdToAll/KLoader";
 import { FcLike } from "react-icons/fc";
@@ -132,7 +131,7 @@ const ProductDetailsPage = () => {
                             ))}
                         </div>
                         <a
-                            href={product.externalLinks}
+                            href={product?.externalLinks ? product.externalLinks : product?.externalLink}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="text-blue-500 underline mt-4 text-xs flex items-center gap-2"

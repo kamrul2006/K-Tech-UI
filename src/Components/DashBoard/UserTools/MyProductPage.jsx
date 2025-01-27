@@ -4,6 +4,7 @@ import UseProduct from '../../../Hooks/UseProduct';
 import { AuthContext } from '../../../Auth/Providers/AuthProvider';
 import axiosSecure from '../../../Hooks/axiosSecure';
 import Swal from 'sweetalert2';
+import { Link } from 'react-router-dom';
 
 const MyProductsPage = () => {
     const { user } = useContext(AuthContext)
@@ -92,13 +93,12 @@ const MyProductsPage = () => {
                                 <td className="py-3 px-4 border-b space-x-3">
 
                                     <div className='flex items-center gap-4'>
-                                        <button
-                                            className="text-blue-400 hover:text-blue-700"
-                                            onClick={() => window.location.href = `/update-product/${product.id}`}
-                                        >
-                                            <FaPen />
-                                        </button>
-
+                                        <Link to={`/dashboard/update-product/${product._id}`}>
+                                            <button
+                                                className="text-blue-400 hover:text-blue-700"    >
+                                                <FaPen />
+                                            </button>
+                                        </Link>
 
                                         <button
                                             className="text-red-400 hover:text-red-700 ml-3"

@@ -13,6 +13,7 @@ import PrivetRout from "./Auth/Privet/Privetrought";
 import UserProfilePage from "./Components/DashBoard/UserTools/UserHome";
 import AddProductPage from "./Components/DashBoard/UserTools/AddProductPage";
 import MyProductsPage from "./Components/DashBoard/UserTools/MyProductPage";
+import UpdateProductPage from "./Components/DashBoard/UserTools/UpdateProduct";
 
 
 
@@ -69,6 +70,11 @@ const router = createBrowserRouter([
             {
                 path: "/dashboard/my-product",
                 element: <MyProductsPage />
+            },
+            {
+                path: `/dashboard/update-product/:id`,
+                element: <UpdateProductPage />,
+                loader: ({ params }) => fetch(`http://localhost:5000/products/${params.id}`)
             },
         ]
     },

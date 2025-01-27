@@ -69,8 +69,9 @@ const LoginPage = () => {
                 const UserInfo = {
                     name: res.user.displayName,
                     email: res.user.email,
-                    role: "user"
-                }
+                    role: "user",
+                    isSubscribed: false
+                };
 
                 setSuccess('LOGIN Successful.')
                 navigate(location.state ? location.state : '/')

@@ -56,7 +56,7 @@ const Sidebar = () => {
     useEffect(() => {
         const fetchUserRole = async () => {
             try {
-                const res = await axiosSecurity.get(`/users/admin/${user?.email}`);
+                const res = await axiosSecurity.get(`/users-role/${user?.email}`);
                 setUserRole(res.data.userRole);
             } catch (error) {
                 console.error("Error fetching user role:", error);
@@ -69,10 +69,10 @@ const Sidebar = () => {
     // console.log(user.email)
 
     useEffect(() => {
-        if (userRole === 'admin') {
+        if (userRole?.role === 'admin') {
             setActiveItem('Admin Home');
             SetMenuItems(AdminMenuItems);
-        } else if (userRole === 'moderator') {
+        } else if (userRole?.role === 'moderator') {
             setActiveItem('Moderator Home');
             SetMenuItems(ModeratorMenuItems);
         } else {
@@ -81,7 +81,7 @@ const Sidebar = () => {
         }
     }, [userRole]);
 
-    // console.log(userRole);
+    console.log(userRole);
 
 
 
