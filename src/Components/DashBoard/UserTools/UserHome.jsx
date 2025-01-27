@@ -31,7 +31,9 @@ const UserProfilePage = () => {
 
     return (
         <div className="flex justify-center items-center min-h-screen bg-gray-100">
-            <div className="w-full max-w-md p-6 rounded-2xl shadow-xl bg-white">
+            <div className="w-full max-w-4xl  p-6 rounded-2xl shadow-xl bg-white"> 
+
+                <h2 className="text-lg md:text-3xl bg-blue-700 text-white py-2 font-bold rounded-full text-center my-4">My Profile Information</h2>
 
                 <div className="flex flex-col items-center">
 

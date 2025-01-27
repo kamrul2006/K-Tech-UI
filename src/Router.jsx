@@ -17,6 +17,7 @@ import UpdateProductPage from "./Components/DashBoard/UserTools/UpdateProduct";
 import PaymentLayOut from "./Components/DashBoard/UserTools/PaymentLayOut";
 import ProductReviewQueue from "./Components/DashBoard/ModeratorTools/ProductToReview";
 import ReportedContentsPage from "./Components/DashBoard/ModeratorTools/ReportedPage";
+import AllUsers from "./Components/DashBoard/AdminTools/AllUsers";
 
 
 
@@ -92,6 +93,12 @@ const router = createBrowserRouter([
             {
                 path: "/dashboard/reported",
                 element: <ReportedContentsPage />
+            },
+
+            // ---------------------admin tools---------
+            {
+                path: "/dashboard/AllUsers",
+                element: <AllUsers />
             },
         ]
     },

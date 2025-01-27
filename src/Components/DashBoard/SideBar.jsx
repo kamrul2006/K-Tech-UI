@@ -2,16 +2,15 @@ import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import {
     FaHome,
-    FaBook,
     FaBars,
     FaUsers,
 } from "react-icons/fa";
-import { MdFoodBank, MdOutlineReportGmailerrorred, MdRateReview } from "react-icons/md";
-import { TfiMenuAlt } from "react-icons/tfi";
+import { MdOutlineReportGmailerrorred, MdRateReview } from "react-icons/md";
 import axiosSecure from "../../Hooks/axiosSecure";
 import { AuthContext } from "../../Auth/Providers/AuthProvider";
-import { IoBagAdd } from "react-icons/io5";
+import { IoBagAdd, IoStatsChartSharp } from "react-icons/io5";
 import { AiOutlineProduct } from "react-icons/ai";
+import { RiCoupon3Line } from "react-icons/ri";
 
 const Sidebar = () => {
     const { user } = useContext(AuthContext)
@@ -35,11 +34,9 @@ const Sidebar = () => {
     ];
 
     const AdminMenuItems = [
-        { name: "Admin Home", icon: <FaHome />, path: "/dashboard/admin" },
-        { name: "Add Food", icon: <MdFoodBank />, path: "/dashboard/addFood" },
-        { name: "Manege Items", icon: <TfiMenuAlt />, path: "/dashboard/ManegeItem" },
-        { name: "Manage bookings", icon: <FaBook />, path: "/dashboard/ManegeBooking" },
-        { name: "All Users", icon: <FaUsers />, path: "/dashboard/AllUsers" },
+        { name: "Statistics", icon: <IoStatsChartSharp />, path: "/dashboard/admin" },
+        { name: " Manage Users", icon: <FaUsers />, path: "/dashboard/AllUsers" },
+        { name: "Manage Coupons", icon: <RiCoupon3Line />, path: "/dashboard/addFood" },
     ];
 
     const ModeratorMenuItems = [

@@ -1,9 +1,9 @@
 import React from "react";
-import { FaUserFriends } from "react-icons/fa";
-import { MdDelete } from "react-icons/md";
-import axiosSecure from "../../../Hooks/axiosSecure";
+import { MdAddModerator } from "react-icons/md";
 import { useQuery } from "@tanstack/react-query";
 import Swal from "sweetalert2";
+import axiosSecure from "../../../Hooks/axiosSecure";
+import { GrUserAdmin } from "react-icons/gr";
 
 const AllUsers = () => {
     const axiosSecurity = axiosSecure()
@@ -24,7 +24,7 @@ const AllUsers = () => {
             text: "You won't be able to revert this!",
             icon: "warning",
             showCancelButton: true,
-            confirmButtonColor: "#00FF00",
+            confirmButtonColor: "#0000FF",
             cancelButtonColor: "#d33",
             confirmButtonText: "Yes,Make Admin."
         }).then((result) => {
@@ -47,25 +47,25 @@ const AllUsers = () => {
     }
 
     // ---------handle delete user--------
-    const handleDelete = (id) => {
+    const handleModerator = (id) => {
         // console.log(id)
         Swal.fire({
-            title: "Are you sure want to delete this User?",
+            title: "Do you want to make him Moderator?",
             text: "You won't be able to revert this!",
             icon: "warning",
             showCancelButton: true,
-            confirmButtonColor: "#3085d6",
+            confirmButtonColor: "#0000FF",
             cancelButtonColor: "#d33",
-            confirmButtonText: "Yes, delete it!"
+            confirmButtonText: "Yes."
         }).then((result) => {
             if (result.isConfirmed) {
                 // 
-                axiosSecurity.delete(`/users/${id}`)
+                axiosSecurity.patch(`/m-users/${id}`)
                     .then(res => {
-                        if (res.data.deletedCount > 0) {
+                        if (res.data.modifiedCount > 0) {
                             Swal.fire({
-                                title: "Deleted!",
-                                text: "Your file has been deleted.",
+                                title: "Added To Moderator.",
+                                text: "Your made this user an Moderator.",
                                 icon: "success"
                             });
 
@@ -85,12 +85,12 @@ const AllUsers = () => {
                 <div className="overflow-x-auto">
                     <table className="table-auto w-full text-left border-collapse border">
                         <thead>
-                            <tr className="bg-yellow-600 text-white">
+                            <tr className="bg-blue-600 text-white w-full">
                                 <th className="py-2 px-4">#</th>
                                 <th className="py-2 px-4">Name</th>
                                 <th className="py-2 px-4">Email</th>
-                                <th className="py-2 px-4">Role</th>
-                                <th className="py-2 px-4">Action</th>
+                                <th className="py-2 px-4 text-center">Role</th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -103,26 +103,28 @@ const AllUsers = () => {
                                     <td className="py-2 px-4">{index + 1}</td>
                                     <td className="py-2 px-4">{user.name}</td>
                                     <td className="py-2 px-4">{user.email}</td>
-                                    <td className="py-2 px-4">
+                                    <td className="py-2 px-4 text-center flex items-center justify-between">
+
+
                                         {
                                             user.role == 'admin' ?
-                                                <p>ADMIN</p> :
+                                                <p className="text-center">ADMIN</p> :
                                                 <button
                                                     onClick={() => handleAdmin(user._id)}
-                                                    className="bg-yellow-600 text-white p-2 rounded hover:bg-yellow-700">
-                                                    <FaUserFriends />
+                                                    className="btn btn-xs btn-outline btn-info">
+                                                    <GrUserAdmin /> <span className="hidden md:block"> Make Admin</span>
                                                 </button>
                                         }
 
 
-                                    </td>
 
-                                    <td className="py-2 px-4">
-                                        <button
-                                            onClick={() => handleDelete(user._id)}
-                                            className="bg-red-600 text-white p-2 rounded hover:bg-red-700">
-                                            <MdDelete />
-                                        </button>
+                                        {user.role != 'moderator' ? <button
+                                            onClick={() => handleModerator(user._id)}
+                                            className={`btn btn-xs btn-outline btn-success ${user.role == 'admin' && 'hidden'}`}>
+                                            <MdAddModerator /> <span className="hidden md:block">Make Moderator</span>
+                                        </button> : <p className="text-center">Moderator</p>}
+
+
                                     </td>
                                 </tr>
                             ))}

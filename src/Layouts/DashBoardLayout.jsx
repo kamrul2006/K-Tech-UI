@@ -9,13 +9,13 @@ const DashBoardLayout = () => {
         <div>
             <Navbar />
 
-            <div className='grid grid-cols-5 '>
+            <div className='grid grid-cols-6 '>
 
                 <div className='col-span-1 mt-10 md:mt-0'>
                     <Sidebar />
                 </div>
 
-                <div className='col-span-4 mt-20'>
+                <div className='col-span-5 mt-20'>
                     <Outlet />
                 </div>
 
