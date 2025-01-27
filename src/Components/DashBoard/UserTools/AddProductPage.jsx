@@ -37,7 +37,7 @@ const AddProductPage = () => {
         fetchUserRole();
     }, [user?.email]);
 
-    console.log(userRole)
+    // console.log(userRole)
 
     // Fetch product count
     useEffect(() => {
