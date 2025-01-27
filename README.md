@@ -1,9 +1,10 @@
 
 
-# <img src="./src/assets/llg.png" alt="K-Tech Logo" width="50px" /> K-Tech: Discover, Share, and Vote on Innovative Products
+# <img src="./src/assets/llg.png" alt="K-Tech Logo" width="45px" /> K-Tech: 
+**Discover, Share, and Vote on Innovative Products**
 
 
-[Live Site URL](https://k-tech.example.com)
+[Live Site URL](https://k-tech.example.com) **https://k-tech.example.com**
 
 ---
 
