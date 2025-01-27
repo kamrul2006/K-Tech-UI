@@ -18,6 +18,7 @@ import PaymentLayOut from "./Components/DashBoard/UserTools/PaymentLayOut";
 import ProductReviewQueue from "./Components/DashBoard/ModeratorTools/ProductToReview";
 import ReportedContentsPage from "./Components/DashBoard/ModeratorTools/ReportedPage";
 import AllUsers from "./Components/DashBoard/AdminTools/AllUsers";
+import AdminStatisticsPage from "./Components/DashBoard/AdminTools/AdminStatisticsPage";
 
 
 
@@ -99,6 +100,10 @@ const router = createBrowserRouter([
             {
                 path: "/dashboard/AllUsers",
                 element: <AllUsers />
+            },
+            {
+                path: "/dashboard/admin",
+                element: <AdminStatisticsPage />
             },
         ]
     },
