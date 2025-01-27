@@ -1,10 +1,11 @@
+
 import React, { useContext, useEffect, useState } from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
 import KTechLoader from '../../Components/FixdToAll/KLoader';
 import { AuthContext } from '../Providers/AuthProvider';
 import axiosSecure from '../../Hooks/axiosSecure';
 
-const AdminPrivet = ({ children }) => {
+const ModeratorPrivet = ({ children }) => {
     const { user, loading } = useContext(AuthContext)
 
     const location = useLocation()
@@ -36,7 +37,7 @@ const AdminPrivet = ({ children }) => {
         </div>
     }
 
-    if (user && userRole == 'admin') {
+    if (user && userRole == 'moderator') {
         return children
     }
 
@@ -45,4 +46,4 @@ const AdminPrivet = ({ children }) => {
     );
 };
 
-export default AdminPrivet;
+export default ModeratorPrivet;

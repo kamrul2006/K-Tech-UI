@@ -20,6 +20,8 @@ import ReportedContentsPage from "./Components/DashBoard/ModeratorTools/Reported
 import AllUsers from "./Components/DashBoard/AdminTools/AllUsers";
 import AdminStatisticsPage from "./Components/DashBoard/AdminTools/AdminStatisticsPage";
 import ManageCouponPage from "./Components/DashBoard/AdminTools/ManageCouponPage";
+import AdminPrivet from "./Auth/Privet/AdminPrivet";
+import ModeratorPrivet from "./Auth/Privet/ModeratorPrivet";
 
 
 
@@ -90,25 +92,25 @@ const router = createBrowserRouter([
             // ------------------moderator tools-----
             {
                 path: "/dashboard/review",
-                element: <ProductReviewQueue />
+                element: <ModeratorPrivet> <ProductReviewQueue /></ModeratorPrivet>
             },
             {
                 path: "/dashboard/reported",
-                element: <ReportedContentsPage />
+                element: <ModeratorPrivet><ReportedContentsPage /></ModeratorPrivet>
             },
 
             // ---------------------admin tools---------
             {
                 path: "/dashboard/AllUsers",
-                element: <AllUsers />
+                element: <AdminPrivet><AllUsers /></AdminPrivet>
             },
             {
                 path: "/dashboard/admin",
-                element: <AdminStatisticsPage />
+                element: <AdminPrivet><AdminStatisticsPage /></AdminPrivet>
             },
             {
                 path: "/dashboard/coupons",
-                element: <ManageCouponPage />
+                element: <AdminPrivet><ManageCouponPage /></AdminPrivet>
             },
         ]
     },
