@@ -2,12 +2,15 @@ import React, { useEffect, useState } from "react";
 import axiosSecure from "../../Hooks/axiosSecure";
 import SubscribeButton from "../FixdToAll/SubscribeButton";
 import { Flip, Hinge } from "react-awesome-reveal";
+import UseAxiosPublic from "../../Hooks/UseAxiosPublic";
 
 const TrendingCouponsSlider = () => {
     const [coupons, setCoupons] = useState([]);
     const [currentIndex, setCurrentIndex] = useState(0);
 
     const axiosSecurity = axiosSecure()
+    const axiosPublic = UseAxiosPublic()
+
 
 
     // Fetch valid coupons (example endpoint)
@@ -15,7 +18,7 @@ const TrendingCouponsSlider = () => {
         const fetchCoupons = async () => {
             try {
 
-                axiosSecurity.get('/coupons')
+                axiosPublic.get('/coupons')
                     .then(res => {
                         const validCoupons = res.data.filter(
                             (coupon) => new Date(coupon.expiryDate) > new Date()

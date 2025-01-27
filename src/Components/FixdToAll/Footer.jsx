@@ -2,6 +2,14 @@ import React from "react";
 import logo from "../../assets/llg.png";
 import { FaFacebook, FaTwitter, FaLinkedin, FaInstagram } from "react-icons/fa";
 import { Fade } from "react-awesome-reveal";
+import { Link } from "react-router-dom";
+
+const links = <>
+  < Link className={`hover:underline hover:font-bold hover:text-blue-400`} to={'/'}>Home</ Link>
+  < Link className={`hover:underline hover:font-bold hover:text-blue-400`} to={'/products'}>Products</ Link>
+  < Link className={`hover:underline hover:font-bold hover:text-blue-400`} to={'/contact'}>Contact Us</ Link>
+  < Link className={`hover:underline hover:font-bold hover:text-blue-400`} to={'/about'}>About Us</ Link>
+</>
 
 const Footer = () => {
   return (
@@ -36,21 +44,10 @@ const Footer = () => {
           </div>
 
           {/* Quick Links */}
-          <div>
+          <div >
             <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
-            <ul className="space-y-2 text-gray-300 text-sm md:text-base font-semibold">
-              <li>
-                <a href="/" className="hover:text-blue-400 hover:underline">Home</a>
-              </li>
-              <li>
-                <a href="/products" className="hover:text-blue-400 hover:underline">Products</a>
-              </li>
-              <li>
-                <a href="/about" className="hover:text-blue-400 hover:underline">About Us</a>
-              </li>
-              <li>
-                <a href="/contact" className="hover:text-blue-400 hover:underline">Contact</a>
-              </li>
+            <ul className="flex flex-col gap-2 text-gray-300 text-sm md:text-base font-semibold">
+              {links}
             </ul>
           </div>
 

@@ -6,6 +6,7 @@ import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../Auth/Providers/AuthProvider";
 import { BiMenu } from "react-icons/bi";
 import "./Active.css"
+import DashBoardButton from "./DashBoardButton";
 
 const navLinks = <>
   <NavLink className={`hover:bg-blue-100 hover:text-black rounded px-1`} to={'/'}>Home</NavLink>
@@ -76,14 +77,8 @@ const Navbar = () => {
                     <AiOutlineUser className="font-semibold text-lg" />{user?.displayName}
                   </div>
 
-                  <Link to={"/dashboard"}>
-                    <button
-                      className=" px-4 py-2 w-full hover:bg-gray-100 flex items-center gap-2"
-                      role="menuitem"
-                    >
-                      <BiMenu className="text-lg" /> Dashboard
-                    </button>
-                  </Link>
+
+                  <DashBoardButton />
 
 
                   <button
@@ -126,12 +121,7 @@ const Navbar = () => {
                   <AiOutlineUser className="text-lg" /> {user?.displayName}
                 </div>
 
-                <Link to={"/dashboard"}>
-                  <button className="btn btn-outline btn-sm w-full text-left">
-                    <BiMenu className="text-lg" />
-                    Dashboard
-                  </button>
-                </Link>
+                <DashBoardButton />
 
                 <button
                   onClick={UserSignOut}

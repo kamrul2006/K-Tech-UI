@@ -65,11 +65,11 @@ const Sidebar = () => {
 
     useEffect(() => {
         if (userRole?.role == 'admin') {
-            setActiveItem('Admin Home');
+            setActiveItem('Statistics');
             SetMenuItems(AdminMenuItems);
             setRoleDashboard('Admin Dashboard')
         } else if (userRole?.role == 'moderator') {
-            setActiveItem('Moderator Home');
+            setActiveItem('Product Review');
             SetMenuItems(ModeratorMenuItems);
             setRoleDashboard('Moderator Dashboard')
         } else {
