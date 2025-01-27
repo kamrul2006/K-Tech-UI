@@ -21,7 +21,7 @@ const ProductDetailsPage = () => {
 
     // Fetch product and reviews
     useEffect(() => {
-        fetch(`http://localhost:5000/reviews`)
+        fetch(`https://k-tech-server.vercel.app/reviews`)
             .then((res) => res.json())
             .then((data) => {
                 const rev = data.filter(d => d.productId == id)

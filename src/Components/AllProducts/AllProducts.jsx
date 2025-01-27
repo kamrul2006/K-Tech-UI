@@ -18,7 +18,7 @@ const AllProducts = () => {
     const fetchProducts = async () => {
         try {
             const response = await axios.get(
-                `http://localhost:5000/api/products?search=${search}&page=${currentPage}&limit=${itemsPerPage}`
+                `https://k-tech-server.vercel.app/api/products?search=${search}&page=${currentPage}&limit=${itemsPerPage}`
             );
             setProducts(response.data.products.filter(pr => pr?.Status != 'pending'));
             setTotalPages(response.data.totalPages);

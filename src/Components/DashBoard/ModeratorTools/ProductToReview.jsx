@@ -103,7 +103,7 @@ const ProductReviewQueue = () => {
 
 
 
-                                    <td className="p-3 flex flex-wrap gap-2">
+                                    <td className="p-3 flex flex-col md:flex-row flex-wrap gap-2">
 
 
                                         {/* View Details */}

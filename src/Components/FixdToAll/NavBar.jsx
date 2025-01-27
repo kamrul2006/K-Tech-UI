@@ -106,14 +106,13 @@ const Navbar = () => {
             </div>
 
             {!user ? (
-              <button
-                onClick={() => {
-                  setIsMenuOpen(false);
-                }}
-                className="btn btn-info btn-xs"
-              >
-                Login
-              </button>
+            <Link to={'/login'}>
+            <button
+              className="btn btn-sm btn-info"
+            >
+              Login
+            </button>
+          </Link>
             ) : (
               <div className="space-y-2">
 

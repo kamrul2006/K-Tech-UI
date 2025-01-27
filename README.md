@@ -4,7 +4,7 @@
 **Discover, Share, and Vote on Innovative Products**
 
 
-[Live Site URL](https://k-tech.example.com):  **https://k-tech.example.com**
+[Live Site URL](https://k-tech-ltd.web.app):  **https://k-tech-ltd.web.app**
 
 ---
 

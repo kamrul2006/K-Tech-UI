@@ -42,7 +42,7 @@ const router = createBrowserRouter([
             {
                 path: `/products/:id`,
                 element: <ProductDetailsPage />,
-                loader: ({ params }) => fetch(`http://localhost:5000/products/${params.id}`)
+                loader: ({ params }) => fetch(`https://k-tech-server.vercel.app/products/${params.id}`)
             },
             {
                 path: '/about',
@@ -86,7 +86,7 @@ const router = createBrowserRouter([
             {
                 path: `/dashboard/update-product/:id`,
                 element: <PrivetRout><UpdateProductPage /></PrivetRout>,
-                loader: ({ params }) => fetch(`http://localhost:5000/products/${params.id}`)
+                loader: ({ params }) => fetch(`https://k-tech-server.vercel.app/products/${params.id}`)
             },
 
             // ------------------moderator tools-----

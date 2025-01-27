@@ -86,7 +86,7 @@ const Sidebar = () => {
 
 
     return (
-        <div className="fixed md:pt-16">
+        <div className="fixed md:pt-16 z-50">
 
 
             {/* Sidebar */}

@@ -91,7 +91,7 @@ const ReportedContentsPage = () => {
                                             </div>
                                         </td>
                                         <td className="p-4 border border-gray-300">
-                                            <div className="flex space-x-1 items-center">
+                                            <div className="flex flex-col gap-2 md:flex-row space-x-1 items-center text-xs">
 
 
 
@@ -99,7 +99,7 @@ const ReportedContentsPage = () => {
                                                 <Link to={`/products/${product.productId}`} className="btn btn-outline btn-xs btn-secondary "
                                                 >
                                                     <button className="flex items-center gap-1">
-                                                        <FiEye /> View Details
+                                                     View Details
                                                     </button>
                                                 </Link>
 
@@ -119,7 +119,7 @@ const ReportedContentsPage = () => {
                                                     className="btn btn-outline btn-xs btn-error"
 
                                                 >
-                                                    <FiTrash2 /> Remove Product
+                                                     Remove Product
                                                 </button>
 
 

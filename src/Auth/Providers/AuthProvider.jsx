@@ -65,7 +65,7 @@ const AuthProvider = ({ children }) => {
             if (currentUser?.email) {
                 const user = { email: currentUser?.email };
 
-                axios.post('http://localhost:5000/jwt', user, { withCredentials: true })
+                axios.post('https://k-tech-server.vercel.app/jwt', user, { withCredentials: true })
                     .then(res => {
                         // console.log('login token', res.data);
                         if (res.data.token) {
@@ -77,7 +77,7 @@ const AuthProvider = ({ children }) => {
             else {
                 localStorage.removeItem('Token')
 
-                axios.post('http://localhost:5000/logout', {}, {
+                axios.post('https://k-tech-server.vercel.app/logout', {}, {
                     withCredentials: true
                 })
                     .then(res => {
