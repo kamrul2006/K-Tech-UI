@@ -64,23 +64,23 @@ const router = createBrowserRouter([
             // ---------------------user tools-----------
             {
                 path: "/dashboard/userHome",
-                element: <UserProfilePage />
+                element: <PrivetRout><UserProfilePage /></PrivetRout>
             },
             {
                 path: "/dashboard/pay/:id",
-                element: <PaymentLayOut />
+                element: <PrivetRout><PaymentLayOut /></PrivetRout>
             },
             {
                 path: "/dashboard/add-product",
-                element: <AddProductPage />
+                element: <PrivetRout><AddProductPage /></PrivetRout>
             },
             {
                 path: "/dashboard/my-product",
-                element: <MyProductsPage />
+                element: <PrivetRout><MyProductsPage /></PrivetRout>
             },
             {
                 path: `/dashboard/update-product/:id`,
-                element: <UpdateProductPage />,
+                element: <PrivetRout><UpdateProductPage /></PrivetRout>,
                 loader: ({ params }) => fetch(`http://localhost:5000/products/${params.id}`)
             },
 

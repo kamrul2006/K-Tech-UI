@@ -2,6 +2,8 @@ import React, { useEffect } from 'react';
 import Banner from '../Components/Home/Banner';
 import FeaturedProducts from '../Components/Home/FetureProduct';
 import TrendingProducts from '../Components/AllProducts/TrendingProduct';
+import FAQs from '../Components/Home/FAQs';
+import Categories from '../Components/Home/Categories';
 
 
 const HomeLayout = () => {
@@ -18,7 +20,11 @@ const HomeLayout = () => {
 
             <FeaturedProducts />
 
+            <Categories />
+
             <TrendingProducts />
+
+            <FAQs />
 
         </div>
     );
