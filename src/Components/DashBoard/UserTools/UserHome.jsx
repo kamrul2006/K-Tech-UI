@@ -3,6 +3,7 @@ import { FaCheckCircle, FaUserCircle } from "react-icons/fa";
 import { AuthContext } from "../../../Auth/Providers/AuthProvider";
 import { Link } from "react-router-dom";
 import axiosSecure from "../../../Hooks/axiosSecure";
+import SubscribeButton from "../../FixdToAll/SubscribeButton";
 
 const UserProfilePage = () => {
     const { user } = useContext(AuthContext)
@@ -31,7 +32,7 @@ const UserProfilePage = () => {
 
     return (
         <div className="flex justify-center items-center min-h-screen bg-gray-100">
-            <div className="w-full max-w-4xl  p-6 rounded-2xl shadow-xl bg-white"> 
+            <div className="w-full max-w-4xl  p-6 rounded-2xl shadow-xl bg-white">
 
                 <h2 className="text-lg md:text-3xl bg-blue-700 text-white py-2 font-bold rounded-full text-center my-4">My Profile Information</h2>
 
@@ -48,13 +49,7 @@ const UserProfilePage = () => {
                     <p className="text-gray-600">Email: {user?.email}</p>
 
                     {!userRole?.isSubscribed ? (
-                        <Link to={`/dashboard/pay/${userRole?._id}`}>
-                            <button
-                                className="w-full px-4 py-2 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 transition"
-                            >
-                                $9.99 - Subscribe Now
-                            </button>
-                        </Link>
+                        <SubscribeButton amount={49.99} />
                     ) : (
                         <div className="flex items-center justify-center gap-2 text-green-500 font-semibold">
                             <FaCheckCircle />
