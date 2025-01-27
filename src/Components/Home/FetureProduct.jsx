@@ -2,6 +2,7 @@ import { FiExternalLink } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 import UseProduct from '../../Hooks/UseProduct';
 import UpVoteButton from '../AllProducts/UpVoteButton';
+import { JackInTheBox } from 'react-awesome-reveal';
 
 const FeaturedProducts = () => {
     const [allProduct, refetch] = UseProduct();
@@ -22,44 +23,46 @@ const FeaturedProducts = () => {
                     .sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp))
                     .slice(0, 4)
                     .map((product) => (
-                        <div
-                            key={product._id}
-                            className="bg-white py-2 rounded-lg shadow-lg hover:shadow-xl transition-shadow"
-                        >
-                            <div className="px-2">
-                                <img
-                                    src={product.productImage}
-                                    alt={product.productName}
-                                    className="w-full h-48 md:h-40 object-cover rounded-md mb-4"
-                                />
-                            </div>
-                            <hr />
+                        <JackInTheBox>
+                            <div
+                                key={product._id}
+                                className="bg-white py-2 rounded-lg shadow-lg hover:shadow-xl transition-shadow"
+                            >
+                                <div className="px-2">
+                                    <img
+                                        src={product.productImage}
+                                        alt={product.productName}
+                                        className="w-full h-48 md:h-40 object-cover rounded-md mb-4"
+                                    />
+                                </div>
+                                <hr />
 
-                            <Link to={`/products/${product._id}`}>
-                                <h3
-                                    className="justify-center font-medium text-blue-600 cursor-pointer hover:text-green-600 hover:font-bold my-4 flex items-center gap-2"
-                                >
-                                    {product.productName} <FiExternalLink className="text-gray-400" />
-                                </h3>
-                            </Link>
-
-                            <div className="my-3 flex justify-center space-x-2 mb-4">
-                                {product.tags.map((tag, index) => (
-                                    <span
-                                        key={index}
-                                        className="bg-gray-200 text-gray-800 p-1 rounded-full text-xs"
+                                <Link to={`/products/${product._id}`}>
+                                    <h3
+                                        className="justify-center font-medium text-blue-600 cursor-pointer hover:text-green-600 hover:font-bold my-4 flex items-center gap-2"
                                     >
-                                        {tag}
-                                    </span>
-                                ))}
-                            </div>
+                                        {product.productName} <FiExternalLink className="text-gray-400" />
+                                    </h3>
+                                </Link>
 
-                            {/* ---------buttons----------- */}
-                            <div className="flex justify-end mr-4">
-                                {/* -----like------ */}
-                                <UpVoteButton product={product} refetch={refetch} />
+                                <div className="my-3 flex justify-center space-x-2 mb-4">
+                                    {product.tags.map((tag, index) => (
+                                        <span
+                                            key={index}
+                                            className="bg-gray-200 text-gray-800 p-1 rounded-full text-xs"
+                                        >
+                                            {tag}
+                                        </span>
+                                    ))}
+                                </div>
+
+                                {/* ---------buttons----------- */}
+                                <div className="flex justify-end mr-4">
+                                    {/* -----like------ */}
+                                    <UpVoteButton product={product} refetch={refetch} />
+                                </div>
                             </div>
-                        </div>
+                        </JackInTheBox>
                     ))}
             </div>
         </section>

@@ -3,6 +3,7 @@ import UpVoteButton from "./UpVoteButton";
 import UseTrProduct from "../../Hooks/UseTrProduct";
 import { FiExternalLink } from "react-icons/fi";
 import { FaArrowRight } from "react-icons/fa";
+import { Fade, Slide } from "react-awesome-reveal";
 
 const TrendingProducts = () => {
     const [allProduct, refetch] = UseTrProduct()
@@ -16,43 +17,46 @@ const TrendingProducts = () => {
                 </p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
                     {allProduct.slice(0, 6).map((product) => (
-                        <div
-                            key={product._id}
-                            className="bg-white shadow-md rounded-lg p-4 hover:shadow-lg transition-shadow duration-300"
-                        >
-                            <img
-                                src={product.productImage}
-                                alt={product.productName}
-                                className="w-full h-48 object-cover rounded-lg mb-4"
-                            />
+                        <Slide duration={2000}>
+                            <div
+                                key={product._id}
+                                className="bg-white shadow-md rounded-lg p-4 hover:shadow-lg transition-shadow duration-300"
+                            >
+                                <img
+                                    src={product.productImage}
+                                    alt={product.productName}
+                                    className="w-full h-48 object-cover rounded-lg mb-4"
+                                />
 
-                            <hr />
+                                <hr />
 
-                            <Link to={`/products/${product._id}`}>
-                                <h3
-                                    className=" font-medium text-blue-600 cursor-pointer hover:text-green-600 hover:font-bold my-4 flex items-center gap-2"
-                                >
-                                    {product.productName} <FiExternalLink className="text-gray-400" />
-                                </h3>
-                            </Link>
-
-                            <p className="text-gray-600 text-xs mb-3">{product.description}</p>
-                            <div className="flex flex-wrap gap-2 mb-3">
-                                {product.tags.map((tag, index) => (
-                                    <span
-                                        key={index}
-                                        className="bg-blue-100 text-blue-700 text-xs font-medium p-1 rounded-lg"
+                                <Link to={`/products/${product._id}`}>
+                                    <h3
+                                        className=" font-medium text-blue-600 cursor-pointer hover:text-green-600 hover:font-bold my-4 flex items-center gap-2"
                                     >
-                                        {tag}
-                                    </span>
-                                ))}
-                            </div>
+                                        {product.productName} <FiExternalLink className="text-gray-400" />
+                                    </h3>
+                                </Link>
 
-                            <div className="flex justify-end items-center" onCanPlay={refetch()}>
-                                <UpVoteButton product={product} refetch={refetch} />
-                            </div>
+                                <p className="text-gray-600 text-xs mb-3">{product.description}</p>
+                                <div className="flex flex-wrap gap-2 mb-3">
+                                    {product.tags.map((tag, index) => (
+                                        <span
+                                            key={index}
+                                            className="bg-blue-100 text-blue-700 text-xs font-medium p-1 rounded-lg"
+                                        >
+                                            {tag}
+                                        </span>
 
-                        </div>
+                                    ))}
+                                </div>
+
+                                <div className="flex justify-end items-center" onCanPlay={refetch()}>
+                                    <UpVoteButton product={product} refetch={refetch} />
+                                </div>
+
+                            </div>
+                        </Slide>
                     ))}
                 </div>
 

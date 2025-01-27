@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import { useForm } from "react-hook-form";
 import axiosSecure from "../../../Hooks/axiosSecure";
+import { Slide } from "react-awesome-reveal";
 
 const ManageCoupon = () => {
     const [coupons, setCoupons] = useState([]);
@@ -208,53 +209,59 @@ const ManageCoupon = () => {
 
                 {/* Coupons List */}
                 <div className="w-full lg:w-2/3 border-2 p-2 bg-gray-200 rounded-lg">
+
+
                     <h2 className="text-xl font-semibold text-gray-800 mb-4">
                         Current Coupons
                     </h2>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         {coupons.map((coupon) => (
-                            <div
-                                key={coupon._id}
-                                className="bg-white shadow-md rounded-lg p-4 space-y-3"
-                            >
+                            <Slide direction="right">
+                                <div
+                                    key={coupon._id}
+                                    className="bg-white shadow-md rounded-lg p-4 space-y-3"
+                                >
 
 
-                                <h3 className="text-lg font-bold text-gray-800">
-                                    {coupon.couponCode}
-                                </h3>
+                                    <h3 className="text-lg font-bold text-gray-800">
+                                        {coupon.couponCode}
+                                    </h3>
 
-                                <hr />
+                                    <hr />
 
-                                <p className="text-sm text-gray-600">
-                                    <strong>Expiry Date:</strong> <br /> {new Date(coupon.expiryDate).toLocaleDateString()}
-                                </p>
+                                    <p className="text-sm text-gray-600">
+                                        <strong>Expiry Date:</strong> <br /> {new Date(coupon.expiryDate).toLocaleDateString()}
+                                    </p>
 
-                                <hr />
+                                    <hr />
 
-                                <p className="text-sm text-gray-600">
-                                    <strong>Description:</strong> {coupon.description}
-                                </p>
-                                <p className="text-sm text-gray-600">
-                                    <strong>Discount:</strong> ${coupon.discountAmount}
-                                </p>
-                                <div className="flex justify-between gap-4">
-                                    <button
-                                        onClick={() => openModal(coupon)}
-                                        className="btn btn-sm btn-info btn-outline"
-                                    >
-                                        Edit
-                                    </button>
-                                    <button
-                                        onClick={() => handleDelete(coupon._id)}
-                                        className="btn btn-sm btn-error btn-outline"
-                                    >
-                                        Delete
-                                    </button>
+                                    <p className="text-sm text-gray-600">
+                                        <strong>Description:</strong> {coupon.description}
+                                    </p>
+                                    <p className="text-sm text-gray-600">
+                                        <strong>Discount:</strong> ${coupon.discountAmount}
+                                    </p>
+                                    <div className="flex justify-between gap-4">
+                                        <button
+                                            onClick={() => openModal(coupon)}
+                                            className="btn btn-sm btn-info btn-outline"
+                                        >
+                                            Edit
+                                        </button>
+                                        <button
+                                            onClick={() => handleDelete(coupon._id)}
+                                            className="btn btn-sm btn-error btn-outline"
+                                        >
+                                            Delete
+                                        </button>
+                                    </div>
                                 </div>
-                            </div>
+                            </Slide>
                         ))}
                     </div>
+
                 </div>
+
             </div>
 
             {/* Modal for Coupon Edit */}

@@ -1,4 +1,5 @@
 import React from "react";
+import { Fade } from "react-awesome-reveal";
 import { BiCamera, BiLaptop } from "react-icons/bi";
 import { CgSmartphone } from "react-icons/cg";
 import { FaGamepad } from "react-icons/fa";
@@ -49,16 +50,18 @@ const Categories = () => {
 
       <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {categories.map((category, index) => (
-          <div
-            key={index}
-            className="bg-white shadow-md rounded-lg p-6 hover:shadow-lg transition border"
-          >
-            <div className="flex items-center gap-4 mb-4">
-              {category.icon}
-              <h3 className="text-lg font-semibold text-gray-800">{category.name}</h3>
+          <Fade duration={2000}>
+            <div
+              key={index}
+              className="bg-white shadow-md rounded-lg p-6 hover:shadow-lg transition border"
+            >
+              <div className="flex items-center gap-4 mb-4">
+                {category.icon}
+                <h3 className="text-lg font-semibold text-gray-800">{category.name}</h3>
+              </div>
+              <p className="text-sm text-gray-600">{category.description}</p>
             </div>
-            <p className="text-sm text-gray-600">{category.description}</p>
-          </div>
+          </Fade>
         ))}
       </div>
     </section>

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Slide } from "react-awesome-reveal";
 import { BiChevronDown, BiChevronUp } from "react-icons/bi";
 
 const FAQs = () => {
@@ -42,27 +43,29 @@ const FAQs = () => {
 
             <div className="max-w-4xl mx-auto space-y-4">
                 {faqs.map((faq, index) => (
-                    <div
-                        key={index}
-                        className="border border-gray-200 rounded-lg overflow-hidden shadow-sm"
-                    >
-                        <button
-                            onClick={() => toggleFAQ(index)}
-                            className="w-full flex justify-between items-center px-4 py-3 bg-white text-gray-800 font-medium text-left focus:outline-none"
+                    <Slide>
+                        <div
+                            key={index}
+                            className="border border-gray-200 rounded-lg overflow-hidden shadow-sm"
                         >
-                            <span>{faq.question}</span>
-                            {openIndex === index ? (
-                                <BiChevronUp className="w-5 h-5 text-gray-500" />
-                            ) : (
-                                <BiChevronDown className="w-5 h-5 text-gray-500" />
+                            <button
+                                onClick={() => toggleFAQ(index)}
+                                className="w-full flex justify-between items-center px-4 py-3 bg-white text-gray-800 font-medium text-left focus:outline-none"
+                            >
+                                <span>{faq.question}</span>
+                                {openIndex === index ? (
+                                    <BiChevronUp className="w-5 h-5 text-gray-500" />
+                                ) : (
+                                    <BiChevronDown className="w-5 h-5 text-gray-500" />
+                                )}
+                            </button>
+                            {openIndex === index && (
+                                <div className="px-4 py-3 bg-gray-100 text-gray-700">
+                                    {faq.answer}
+                                </div>
                             )}
-                        </button>
-                        {openIndex === index && (
-                            <div className="px-4 py-3 bg-gray-100 text-gray-700">
-                                {faq.answer}
-                            </div>
-                        )}
-                    </div>
+                        </div>
+                    </Slide>
                 ))}
             </div>
         </section>

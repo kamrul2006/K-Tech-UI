@@ -29,14 +29,20 @@ const SubscribeButton = ({ amount }) => {
 
     return (
         <div>
-            <Link to={`/dashboard/pay/${userRole?._id}`}>
+            {userRole?.isSubscribed ?
                 <button
                     className="btn btn-sm btn-info"
                     disabled={userRole?.isSubscribed}
                 >
                     ${amount} - Subscribe Now
                 </button>
-            </Link>
+                : <Link to={`/dashboard/pay/${userRole?._id}`}>
+                    <button
+                        className="btn btn-sm btn-info"
+                    >
+                        ${amount} - Subscribe Now
+                    </button>
+                </Link>}
         </div>
     );
 };

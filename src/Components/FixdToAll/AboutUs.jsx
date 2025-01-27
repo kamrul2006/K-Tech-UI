@@ -1,4 +1,5 @@
 import React from "react";
+import { Roll } from "react-awesome-reveal";
 import { Link } from "react-router-dom";
 
 const ttmm = [
@@ -46,13 +47,15 @@ const AboutUs = () => {
             >
                 <div className="bg-black bg-opacity-50 w-full h-full flex items-center justify-center">
                     <div className="text-center px-6">
-                        <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">
-                            Welcome to K-Tech
-                        </h1>
-                        <p className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto">
-                            At K-Tech, we innovate, inspire, and create cutting-edge technology solutions
-                            to drive the future.
-                        </p>
+                        <Roll>
+                            <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">
+                                Welcome to K-Tech
+                            </h1></Roll>
+                        <Roll>
+                            <p className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto">
+                                At K-Tech, we innovate, inspire, and create cutting-edge technology solutions
+                                to drive the future.
+                            </p></Roll>
                     </div>
                 </div>
             </section>
@@ -114,11 +117,14 @@ const AboutUs = () => {
             {/* Call to Action */}
             <section className="bg-blue-800 mb-4 text-white py-5 md:py-16 px-6 md:px-16 md:rounded-2xl">
                 <div className="text-center">
+
                     <h2 className="text-2xl md:text-4xl font-bold">Join K-Tech</h2>
+
                     <p className="md:text-lg text-gray-300 mt-4 max-w-2xl mx-auto">
                         Be part of our journey as we drive innovation and create a better future
                         through technology.
                     </p>
+
 
                     <Link to={'/contact'}>
                         <button className="mt-6 px-6 py-3 bg-blue-500 text-white font-medium rounded-md hover:bg-blue-600 transition">

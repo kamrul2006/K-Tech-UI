@@ -4,9 +4,10 @@ import { useNavigate, useParams } from "react-router-dom";
 import axiosSecure from "../../../Hooks/axiosSecure";
 import { AuthContext } from "../../../Auth/Providers/AuthProvider";
 import Swal from "sweetalert2";
+import { JackInTheBox } from "react-awesome-reveal";
 
 function PaymentPage() {
-    const {id} = useParams()
+    const { id } = useParams()
     console.log(id)
 
     const stripe = useStripe();
@@ -118,16 +119,16 @@ function PaymentPage() {
                     </div>
 
 
-
-                    {/* Submit Button */}
-                    <button
-                        type="submit"
-                        disabled={!stripe || !clientSecret}
-                        className="w-full btn btn-info"
-                    >
-                        Pay
-                    </button>
-
+                    <JackInTheBox>
+                        {/* Submit Button */}
+                        <button
+                            type="submit"
+                            disabled={!stripe || !clientSecret}
+                            className="w-full btn btn-info"
+                        >
+                            Pay
+                        </button>
+                    </JackInTheBox>
 
                 </form>
 

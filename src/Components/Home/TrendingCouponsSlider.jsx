@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axiosSecure from "../../Hooks/axiosSecure";
 import SubscribeButton from "../FixdToAll/SubscribeButton";
+import { Flip, Hinge } from "react-awesome-reveal";
 
 const TrendingCouponsSlider = () => {
     const [coupons, setCoupons] = useState([]);
@@ -56,28 +57,31 @@ const TrendingCouponsSlider = () => {
                     style={{ transform: `translateX(-${currentIndex * 100}%)` }}
                 >
                     {coupons.map((coupon, i) => (
+
                         <div
                             key={coupon._id}
                             className="min-w-full flex-shrink-0 p-6 bg-white shadow-md rounded-lg flex flex-col items-center text-center space-y-4 md:space-y-6"
                         >
-                            <h3 className="text-lg md:text-xl font-semibold text-blue-600 border-b-4 pb-3 w-full border-dotted">
-                                {coupon.couponCode}
-                            </h3>
-                      
-                            <p className="text-sm md:text-base text-gray-600">
-                                <strong>Discount:</strong> ${coupon.discountAmount}
-                            </p>
-                            <p className="text-sm md:text-base text-gray-600">
-                                <strong>Expires On:</strong>{" "}
-                                {new Date(coupon.expiryDate).toLocaleDateString()}
-                            </p>
-                            <p className="text-xs md:text-sm text-gray-500">
-                                {coupon.description}
-                            </p>
+                            <Flip>
+                                <h3 className="text-lg md:text-xl font-semibold text-blue-600 border-b-4 pb-3 w-full border-dotted">
+                                    {coupon.couponCode}
+                                </h3>
 
-                            <SubscribeButton amount={coupon.discountAmount} />
+                                <p className="text-sm md:text-base text-gray-600">
+                                    <strong>Discount:</strong> ${coupon.discountAmount}
+                                </p>
+                                <p className="text-sm md:text-base text-gray-600">
+                                    <strong>Expires On:</strong>{" "}
+                                    {new Date(coupon.expiryDate).toLocaleDateString()}
+                                </p>
+                                <p className="text-xs md:text-sm text-gray-500">
+                                    {coupon.description}
+                                </p>
 
+                                <SubscribeButton amount={coupon.discountAmount} />
+                            </Flip>
                         </div>
+
                     ))}
                 </div>
 

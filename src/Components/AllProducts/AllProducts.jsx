@@ -4,6 +4,7 @@ import { BiLeftArrow, BiRightArrow } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import { FiExternalLink } from "react-icons/fi";
 import UpVoteButton from "./UpVoteButton";
+import { Bounce, Slide, Zoom } from "react-awesome-reveal";
 
 const AllProducts = () => {
     const [products, setProducts] = useState([]);
@@ -41,28 +42,32 @@ const AllProducts = () => {
             <div className="max-w-6xl mx-auto">
                 {/* Page Title and Description */}
                 <div className="mb-8 text-center">
-                    <h1 className="text-4xl font-bold text-blue-600 mb-4">
-                        Explore All Products on K-Tech
-                    </h1>
-                    <p className="text-gray-600 md:px-24 font-semibold">
-                        Discover cutting-edge technology products designed to elevate your lifestyle
-                        and enhance your productivity. From innovative gadgets to smart solutions,
-                        find the perfect product to match your needs. Browse, vote, and explore the
-                        best of K-Tech!
-                    </p>
+                    <Bounce>
+                        <h1 className="text-4xl font-bold text-blue-600 mb-4">
+                            Explore All Products on K-Tech
+                        </h1></Bounce>
+                    <Bounce>
+                        <p className="text-gray-600 md:px-24 font-semibold">
+                            Discover cutting-edge technology products designed to elevate your lifestyle
+                            and enhance your productivity. From innovative gadgets to smart solutions,
+                            find the perfect product to match your needs. Browse, vote, and explore the
+                            best of K-Tech!
+                        </p>
+                    </Bounce>
                 </div>
 
                 {/* Search Bar */}
-                <div className="mb-6">
-                    <input
-                        type="text"
-                        value={search}
-                        onChange={handleSearch}
-                        placeholder="Search products..."
-                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
-                    />
-                </div>
-
+                <Slide>
+                    <div className="mb-6">
+                        <input
+                            type="text"
+                            value={search}
+                            onChange={handleSearch}
+                            placeholder="Search products..."
+                            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+                        />
+                    </div>
+                </Slide>
                 {/* Product Cards */}
                 <div className=" min-h-screen">
 
@@ -73,44 +78,48 @@ const AllProducts = () => {
                     </div> :
                         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                             {products.map((product) => (
-                                <div
-                                    key={product.id}
-                                    className="bg-white rounded-lg shadow-md overflow-hidden"
-                                >
-                                    <img
-                                        src={product.productImage}
-                                        alt={product.productName}
-                                        className="w-full h-48 object-cover"
-                                    />
-                                    <div className="p-4">
-                                        <Link to={`/products/${product._id}`}>
-                                            <h3
-                                                className=" font-medium text-blue-600 cursor-pointer hover:text-green-600 hover:font-bold mb-4 flex items-center gap-2"
-                                            >
-                                                {product.productName} <FiExternalLink className="text-gray-400" />
-                                            </h3>
-                                        </Link>
+                                <Zoom>
+                                    <div
+                                        key={product.id}
+                                        className="bg-white rounded-lg shadow-md overflow-hidden"
+                                    >
+                                        <img
+                                            src={product.productImage}
+                                            alt={product.productName}
+                                            className="w-full h-48 object-cover"
+                                        />
+                                        <div className="p-4">
+                                            <Link to={`/products/${product._id}`}>
+                                                <h3
+                                                    className=" font-medium text-blue-600 cursor-pointer hover:text-green-600 hover:font-bold mb-4 flex items-center gap-2"
+                                                >
+                                                    {product.productName} <FiExternalLink className="text-gray-400" />
+                                                </h3>
+                                            </Link>
 
-                                        {product.tags.map((tag, index) => (
-                                            <span key={index} className="bg-gray-200 text-gray-600 p-1 rounded-full text-xs ml-2 my-4">
-                                                {tag}
-                                            </span>
-                                        ))}
+                                            {product.tags.map((tag, index) => (
+                                                <span key={index} className="bg-gray-200 text-gray-600 p-1 rounded-full text-xs ml-2 my-4">
+                                                    {tag}
+                                                </span>
+                                            ))}
 
-                                        <p className="text-gray-400 text-sm mt-2 font-bold">
-                                            {product.description}
-                                        </p>
+                                            <p className="text-gray-400 text-sm mt-2 font-bold">
+                                                {product.description}
+                                            </p>
 
-                                        {/* ---------buttons----------- */}
-                                        <div className="flex justify-end mr-4" >
-                                            {/* -----like------ */}
-                                            <UpVoteButton product={product} />
+                                            {/* ---------buttons----------- */}
+                                            <div className="flex justify-end mr-4" >
+                                                {/* -----like------ */}
+                                                <UpVoteButton product={product} />
+                                            </div>
+
                                         </div>
-
                                     </div>
-                                </div>
+                                </Zoom>
                             ))}
-                        </div>}
+                        </div>
+
+                    }
 
 
                 </div>

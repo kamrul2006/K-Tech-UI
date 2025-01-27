@@ -1,9 +1,10 @@
 import React, { useContext } from "react";
 import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaFacebook, FaTwitter, FaInstagram } from "react-icons/fa";
 import { AuthContext } from "../../Auth/Providers/AuthProvider";
+import { Roll } from "react-awesome-reveal";
 
 const ContactUs = () => {
-const {user}=useContext(AuthContext)
+    const { user } = useContext(AuthContext)
 
     return (
         <div className="bg-gray-50 text-gray-800 md:my-20">
@@ -16,12 +17,14 @@ const {user}=useContext(AuthContext)
             >
                 <div className="bg-black bg-opacity-60 w-full h-full flex items-center justify-center">
                     <div className="text-center px-6">
-                        <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">
-                            Get in Touch with K-Tech
-                        </h1>
-                        <p className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto">
-                            We're here to answer your questions and assist with your tech needs. Let's connect!
-                        </p>
+                        <Roll>
+                            <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">
+                                Get in Touch with K-Tech
+                            </h1></Roll>
+                        <Roll>
+                            <p className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto">
+                                We're here to answer your questions and assist with your tech needs. Let's connect!
+                            </p></Roll>
                     </div>
                 </div>
             </section>
