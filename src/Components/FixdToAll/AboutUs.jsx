@@ -1,5 +1,5 @@
 import React from "react";
-import { Roll } from "react-awesome-reveal";
+import { Fade, Slide, Zoom } from "react-awesome-reveal";
 import { Link } from "react-router-dom";
 
 const ttmm = [
@@ -47,15 +47,15 @@ const AboutUs = () => {
             >
                 <div className="bg-black bg-opacity-50 w-full h-full flex items-center justify-center">
                     <div className="text-center px-6">
-                        <Roll>
+                        < Fade duration={2000}>
                             <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">
                                 Welcome to K-Tech
-                            </h1></Roll>
-                        <Roll>
+                            </h1></ Fade>
+                        < Fade duration={2000}>
                             <p className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto">
                                 At K-Tech, we innovate, inspire, and create cutting-edge technology solutions
                                 to drive the future.
-                            </p></Roll>
+                            </p></ Fade>
                     </div>
                 </div>
             </section>
@@ -64,24 +64,29 @@ const AboutUs = () => {
             <section className="py-16 px-6 md:px-16">
                 <div className="flex flex-col md:flex-row items-center gap-10">
                     <div className="md:w-1/2">
-                        <img
-                            src="https://img.freepik.com/premium-vector/world-cloud-computing-network_63216-45.jpg?w=360"
-                            alt="Mission"
-                            className="rounded-lg shadow-lg w-full object-cover"
-                        />
+                        <Slide>
+                            <img
+                                src="https://img.freepik.com/premium-vector/world-cloud-computing-network_63216-45.jpg?w=360"
+                                alt="Mission"
+                                className="rounded-lg shadow-lg w-full object-cover"
+                            />
+                        </Slide>
                     </div>
                     <div className="md:w-1/2 text-center md:text-left">
-                        <h2 className="text-3xl md:text-4xl font-bold text-blue-500 mb-4">
-                            Our Mission
-                        </h2>
-                        <p className="text-lg text-gray-700 leading-relaxed">
-                            At K-Tech, our mission is to deliver top-notch technology solutions that
-                            empower businesses and individuals to achieve their goals. We are dedicated
-                            to innovation, integrity, and creating meaningful impact in the tech world.
-                        </p>
-                        <p className="mt-4 text-lg text-gray-700 leading-relaxed">
-                            Join us in building a future where technology drives progress and success.
-                        </p>
+                        < Fade duration={2000}>
+                            <h2 className="text-3xl md:text-4xl font-bold text-blue-500 mb-4">
+                                Our Mission
+                            </h2></Fade>
+                        < Fade duration={2000}>
+                            <p className="text-lg text-gray-700 leading-relaxed">
+                                At K-Tech, our mission is to deliver top-notch technology solutions that
+                                empower businesses and individuals to achieve their goals. We are dedicated
+                                to innovation, integrity, and creating meaningful impact in the tech world.
+                            </p></Fade>
+                        < Fade duration={2000}>
+                            <p className="mt-4 text-lg text-gray-700 leading-relaxed">
+                                Join us in building a future where technology drives progress and success.
+                            </p></Fade>
                     </div>
                 </div>
             </section>
@@ -98,18 +103,20 @@ const AboutUs = () => {
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                     {ttmm.map((member, index) => (
-                        <div
-                            key={index}
-                            className="bg-white shadow-lg rounded-lg p-6 text-center"
-                        >
-                            <img
-                                src={member.img}
-                                alt={member.name}
-                                className="w-24 h-24 rounded-full mx-auto mb-4 border-2 border-blue-500"
-                            />
-                            <h3 className="text-lg font-bold">{member.name}</h3>
-                            <p className="text-gray-600">{member.role}</p>
-                        </div>
+                        <Slide>
+                            <div
+                                key={index}
+                                className="bg-white shadow-lg rounded-lg p-6 text-center"
+                            >
+                                <img
+                                    src={member.img}
+                                    alt={member.name}
+                                    className="w-24 h-24 rounded-full mx-auto mb-4 border-2 border-blue-500"
+                                />
+                                <h3 className="text-lg font-bold">{member.name}</h3>
+                                <p className="text-gray-600">{member.role}</p>
+                            </div>
+                        </Slide>
                     ))}
                 </div>
             </section>
@@ -118,19 +125,23 @@ const AboutUs = () => {
             <section className="bg-blue-800 mb-4 text-white py-5 md:py-16 px-6 md:px-16 md:rounded-2xl">
                 <div className="text-center">
 
-                    <h2 className="text-2xl md:text-4xl font-bold">Join K-Tech</h2>
+                    <Zoom>
+                        <h2 className="text-2xl md:text-4xl font-bold">Join K-Tech</h2>
 
-                    <p className="md:text-lg text-gray-300 mt-4 max-w-2xl mx-auto">
-                        Be part of our journey as we drive innovation and create a better future
-                        through technology.
-                    </p>
+                        <p className="md:text-lg text-gray-300 mt-4 max-w-2xl mx-auto">
+                            Be part of our journey as we drive innovation and create a better future
+                            through technology.
+                        </p>
+                    </Zoom>
 
 
-                    <Link to={'/contact'}>
-                        <button className="mt-6 px-6 py-3 bg-blue-500 text-white font-medium rounded-md hover:bg-blue-600 transition">
-                            Contact Us
-                        </button>
-                    </Link>
+                    <Fade duration={2000}>
+                        <Link to={'/contact'}>
+                            <button className="mt-6 px-6 py-3 bg-blue-500 text-white font-medium rounded-md hover:bg-blue-600 transition">
+                                Contact Us
+                            </button>
+                        </Link>
+                    </Fade>
 
                 </div>
             </section>

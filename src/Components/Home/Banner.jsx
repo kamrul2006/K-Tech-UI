@@ -4,12 +4,12 @@ import banner2 from "../../assets/banner2.jpg";
 import banner3 from "../../assets/banner3.jpg";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
-import { Roll } from "react-awesome-reveal";
+import { Fade } from "react-awesome-reveal";
 
 
 const Banner = () => {
   return (
-    <div className="banner mt-20">
+    <div className="banner mt-0 md:mt-20">
       <Carousel
         autoPlay
         infiniteLoop
@@ -26,16 +26,16 @@ const Banner = () => {
             className="h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] w-full object-cover"
           />
           <div className="absolute inset-0 flex flex-col justify-center items-center text-center text-white bg-black bg-opacity-40 backdrop-blur-sm px-4">
-            <Roll>
+            < Fade duration={2000}>
               <h2 className="text-xl sm:text-2xl md:text-4xl lg:text-5xl font-bold mb-4">
                 Revolutionizing Technology
               </h2>
-            </Roll>
-            <Roll>
+            </ Fade>
+            < Fade duration={2000}>
               <p className="text-sm sm:text-base md:text-lg lg:text-xl max-w-2xl">
                 Join us at K-Tech to shape the future with cutting-edge solutions that drive innovation and excellence.
               </p>
-            </Roll>
+            </ Fade>
           </div>
         </div>
 
@@ -48,14 +48,14 @@ const Banner = () => {
             className="h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] w-full object-cover"
           />
           <div className="absolute inset-0 flex flex-col justify-center items-center text-center text-white bg-black bg-opacity-40 backdrop-blur-sm px-4">
-            <Roll>
+            < Fade duration={2000}>
               <h2 className="text-xl sm:text-2xl md:text-4xl lg:text-5xl font-bold mb-4">
                 Empowering Your Vision
-              </h2></Roll>
-            <Roll>
+              </h2></ Fade>
+            < Fade duration={2000}>
               <p className="text-sm sm:text-base md:text-lg lg:text-xl max-w-2xl">
                 Discover tools and technologies that transform ideas into reality with K-Tech's trusted solutions.
-              </p></Roll>
+              </p></ Fade>
           </div>
         </div>
 
@@ -68,14 +68,15 @@ const Banner = () => {
             className="h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] w-full object-cover"
           />
           <div className="absolute inset-0 flex flex-col justify-center items-center text-center text-white bg-black bg-opacity-40 backdrop-blur-sm px-4">
-            <Roll>
+            < Fade duration={2000}>
               <h2 className="text-xl sm:text-2xl md:text-4xl lg:text-5xl font-bold mb-4">
                 Driving Innovation Together
-              </h2></Roll>
-            <Roll>
+              </h2></ Fade>
+            < Fade duration={2000}>
               <p className="text-sm sm:text-base md:text-lg lg:text-xl max-w-2xl">
                 Partner with K-Tech and be a part of the journey to create smarter, better, and faster solutions.
-              </p></Roll>
+              </p>
+            </ Fade>
           </div>
         </div>
       </Carousel>

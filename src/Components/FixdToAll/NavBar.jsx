@@ -28,12 +28,15 @@ const Navbar = () => {
 
   return (
     <nav className="bg-white/70 backdrop-blur-xl px-4 md:px-16 py-2 fixed top-0 w-full z-50 shadow-md">
+
       <div className="flex justify-between items-center">
-        {/* Logo */}
-        <div className="text-2xl font-bold flex items-center gap-2">
-          <img src={logo} alt="K-Tech" className="w-10 md:w-14" />
-          <h2 className="text-2xl md:text-4xl">K-Tech</h2>
-        </div>
+        <Link to={'/'}>
+          {/* Logo */}
+          <div className="text-2xl font-bold flex items-center gap-2">
+            <img src={logo} alt="K-Tech" className="w-10 md:w-14" />
+            <h2 className="text-2xl md:text-4xl hover:text-blue-700">K-Tech</h2>
+          </div>
+        </Link>
 
         {/* Hamburger Menu for Mobile */}
         <button
@@ -106,13 +109,13 @@ const Navbar = () => {
             </div>
 
             {!user ? (
-            <Link to={'/login'}>
-            <button
-              className="btn btn-sm btn-info"
-            >
-              Login
-            </button>
-          </Link>
+              <Link to={'/login'}>
+                <button
+                  className="btn btn-sm btn-info"
+                >
+                  Login
+                </button>
+              </Link>
             ) : (
               <div className="space-y-2">
 
