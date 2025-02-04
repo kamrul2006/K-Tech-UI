@@ -1,4 +1,4 @@
-<img src="./k-tech.jpg" alt="K-Tech Logo" aligen="center" width="500px"/>
+
 
 # <img src="./src/assets/llg.png" alt="K-Tech Logo" width="45px" /> K-Tech: 
 **Discover, Share, and Vote on Innovative Products**
