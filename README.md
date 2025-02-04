@@ -1,4 +1,4 @@
-
+<img src="./k-tech.jpg" alt="K-Tech Logo" />
 
 # <img src="./src/assets/llg.png" alt="K-Tech Logo" width="45px" /> K-Tech: 
 **Discover, Share, and Vote on Innovative Products**
@@ -7,10 +7,6 @@
 [Live Site URL](https://k-tech-ltd.web.app):  **https://k-tech-ltd.web.app**
 
 ---
-
-
-# K-Tech UI
-
 ## 🚀 Overview
 
 K-Tech UI is a dynamic web platform designed for seamless product management, interactive user engagement, and efficient content moderation. It offers a user-friendly interface for product submissions, a powerful review system for moderators, and premium membership benefits for enhanced access.
