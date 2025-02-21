@@ -34,12 +34,14 @@ const Sidebar = () => {
     ];
 
     const AdminMenuItems = [
+        { name: " Profile Info", icon: <FaHome />, path: "/dashboard/userHome" },
         { name: "Statistics", icon: <IoStatsChartSharp />, path: "/dashboard/admin" },
         { name: " Manage Users", icon: <FaUsers />, path: "/dashboard/AllUsers" },
         { name: "Manage Coupons", icon: <RiCoupon3Line />, path: "/dashboard/coupons" },
     ];
 
     const ModeratorMenuItems = [
+        { name: "Profile Info", icon: <FaHome />, path: "/dashboard/userHome" },
         { name: "Product Review", icon: <MdRateReview />, path: "/dashboard/review" },
         { name: "Reported Product", icon: <MdOutlineReportGmailerrorred />, path: "/dashboard/reported" },
     ];
