@@ -4,6 +4,7 @@ import TrendingProducts from '../Components/AllProducts/TrendingProduct';
 import FAQs from '../Components/Home/FAQs';
 import Categories from '../Components/Home/Categories';
 import TrendingCouponsSlider from '../Components/Home/TrendingCouponsSlider';
+import ReviewSection from '../Components/Home/Review';
 
 
 const HomeLayout = () => {
@@ -22,6 +23,8 @@ const HomeLayout = () => {
             <TrendingProducts />
 
             <TrendingCouponsSlider />
+
+            <ReviewSection/>
 
             <FAQs />
 
