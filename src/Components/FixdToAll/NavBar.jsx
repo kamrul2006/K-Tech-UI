@@ -34,7 +34,7 @@ const Navbar = () => {
           {/* Logo */}
           <div className="text-2xl font-bold flex items-center gap-2">
             <img src={logo} alt="K-Tech" className="w-10 md:w-14" />
-            <h2 className="text-2xl md:text-4xl hover:text-blue-700">K-Tech</h2>
+            <h2 className="text-2xl md:text-4xl hover:text-blue-800">K-Tech</h2>
           </div>
         </Link>
 
