@@ -4,7 +4,7 @@ import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 const reviews = [
   {
-    name: "Alice Brown",
+    name: "Jhankhar Mahbub",
     rating: 5,
     comment: "Outstanding service! K-Tech never disappoints.",
   },
@@ -50,23 +50,23 @@ export default function ReviewSection() {
     <div className="bg-blue-50 text-blue-900 py-16 px-8 md:px-20 flex flex-col items-center w-full">
       <h2 className="text-4xl font-bold text-center mb-10 border-b-4 border-blue-400 pb-4">What Our Customers Say</h2>
       <div className="relative w-full max-w-6xl flex items-center">
-        <button onClick={prevReview} className="text-blue-500 hover:text-blue-700 absolute left-4 md:left-8">
+        <button onClick={prevReview} className="text-blue-500 hover:text-blue-700 absolute left-0 md:left-8">
           <FaChevronLeft size={40} />
         </button>
         <div className="w-full flex justify-center gap-6 overflow-hidden">
           {reviews.slice(currentIndex, currentIndex + 2).map((review, index) => (
             <div key={index} className="bg-white p-8 rounded-2xl shadow-xl text-center w-full max-w-md">
-              <h3 className="text-2xl font-semibold text-blue-700">{review.name}</h3>
+              <h3 className="md:text-2xl font-semibold text-blue-700">{review.name}</h3>
               <div className="flex justify-center my-3">
                 {Array(review.rating).fill().map((_, i) => (
                   <FaStar key={i} className="text-yellow-400 text-xl" />
                 ))}
               </div>
-              <p className="text-blue-600 italic">"{review.comment}"</p>
+              <p className="text-blue-600 italic text-xs md:text-base">"{review.comment}"</p>
             </div>
           ))}
         </div>
-        <button onClick={nextReview} className="text-blue-500 hover:text-blue-700 absolute right-4 md:right-8">
+        <button onClick={nextReview} className="text-blue-500 hover:text-blue-700 absolute right-0 md:right-8">
           <FaChevronRight size={40} />
         </button>
       </div>

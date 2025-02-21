@@ -5,6 +5,7 @@ import FAQs from '../Components/Home/FAQs';
 import Categories from '../Components/Home/Categories';
 import TrendingCouponsSlider from '../Components/Home/TrendingCouponsSlider';
 import ReviewSection from '../Components/Home/Review';
+import NewsletterSection from '../Components/Home/NewsLetter';
 
 
 const HomeLayout = () => {
@@ -27,6 +28,8 @@ const HomeLayout = () => {
             <ReviewSection/>
 
             <FAQs />
+
+            <NewsletterSection/>
 
         </div>
     );
