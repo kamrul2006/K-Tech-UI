@@ -55,6 +55,8 @@ const Navbar = () => {
           {navLinks}
         </div>
 
+
+
         {/* Desktop Navigation Links */}
         <div className="hidden md:flex items-center space-x-6">
           {!user ?
